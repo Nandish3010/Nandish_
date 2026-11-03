@@ -1,0 +1,200 @@
+{
+  "project_name": "Nandish: The Journey",
+  "author_display_name": "Nandish: The Journey",
+  "app_type": "hybrid_fullstack (narrative game + interactive resume + Wispr Flow hiring pitch)",
+  "emotional_tone": "Personal, confident, narrative-driven game UI. Combines sleek tactical dark theme, retro arcade level mechanics, and high-impact growth portfolio storytelling.",
+  "target_audience": "Wispr Flow hiring team (Growth / Influencer Marketing & Partnerships, India), recruiters, tech leaders, and peers.",
+  "theme_strategy": {
+    "primary_mode": "Dark Tactical Arcade",
+    "base_background": "#0B0F17",
+    "surface_cards": "#131B2E",
+    "surface_elevated": "#1C2640",
+    "accent_primary": "#10B981",
+    "accent_secondary": "#8B5CF6",
+    "accent_gold": "#F59E0B",
+    "text_primary": "#F8FAFC",
+    "text_muted": "#94A3B8",
+    "border_subtle": "rgba(255, 255, 255, 0.1)"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Outfit, sans-serif",
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-semibold",
+      "h4": "text-lg sm:text-xl font-medium"
+    },
+    "body": {
+      "font_family": "Plus Jakarta Sans, sans-serif",
+      "text": "text-base text-slate-300 leading-relaxed",
+      "text_sm": "text-sm text-slate-400"
+    },
+    "mono_hud": {
+      "font_family": "JetBrains Mono, monospace",
+      "stats": "font-mono uppercase tracking-wider text-emerald-400 text-xs sm:text-sm"
+    }
+  },
+  "layout_and_screens": {
+    "header_nav": {
+      "style": "Sticky glassmorphism header with dark blur (bg-slate-900/80 backdrop-blur-md border-b border-slate-800)",
+      "elements": [
+        "Brand Logo: 'NANDISH // THE JOURNEY'",
+        "Season Select Menu (Season 1, Season 2, Season 3: Locked)",
+        "Level Map Drawer Trigger",
+        "$3,000 Wishlist Cart Icon with Badge Counter & Live Total",
+        "Design Prompt Doc Modal Trigger",
+        "Wispr Pitch Direct CTA Button ('Hire Nandish')"
+      ]
+    },
+    "landing_screen": {
+      "title": "Nandish: The Journey",
+      "subtitle": "An Interactive Life-Journey Game & Pitch for Wispr Flow",
+      "tagline": "Play through college hustle, SuperTales data & growth breakthroughs, and unlock the Wispr Flow secret level.",
+      "cta_primary": "Press Start / Enter Season 1",
+      "cta_secondary": "Explore Wishlist & Pitch Deck"
+    },
+    "level_map": {
+      "layout": "Interactive horizontal/vertical node graph with connecting pulse paths",
+      "node_states": {
+        "completed": "Glowing green border, filled checkmark, star rating (3/3)",
+        "current": "Pulsing violet ring, 'PLAY NOW' indicator, animated beacon",
+        "locked": "Muted gray border, lock icon, hover tooltip with requirement text"
+      },
+      "seasons": [
+        {
+          "id": 1,
+          "name": "Season 1: College & Foundations",
+          "levels": [
+            "Level 1.1: The CGPA Dilemma (Balancing College & Real Work, CGPA 7.33)",
+            "Level 1.2: Meeting the Founders (Pitching for early opportunities)",
+            "Level 1.3: SuperTales Internship Landing (The first break)"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Season 2: The SuperTales Growth Engine",
+          "levels": [
+            "Level 2.1: Operations Intern to Data Analyst Transition",
+            "Level 2.2: The 3-4 Month Sabbatical & Reset",
+            "Level 2.3: Business Analyst Breakthrough (Dashboards, Pipelines, RCAs)",
+            "Level 2.4: Target Planning & Vendor Analytics Tool",
+            "Level 2.5: AI & Loyalty 'Coins' Project",
+            "Level 2.6: Workflow Consolidation into Single App & BRD Masterclass"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Season 3: The Wispr Level",
+          "status": "Locked until Season 2 completion",
+          "teaser_content": "Emergent Voice AI building simulation preview",
+          "final_gate": "'To unlock full season, hire Nandish.'"
+        }
+      ]
+    },
+    "story_card_mechanic": {
+      "type": "Choose-then-Reveal Interactive Dilemma",
+      "structure": [
+        "Level Badge & Objective Header",
+        "Situation Briefing (The Real Obstacle Nandish Faced)",
+        "Multiple-Choice Decision Options ('What would you do?')",
+        "Dramatic Reveal Transition (Card flip + confetti/pulse animation)",
+        "What Nandish Actually Did (The Real Action + Strategic Rationale)",
+        "Impact Metrics & Earned Game Badges",
+        "Next Level Unlock Button"
+      ]
+    },
+    "wishlist_page": {
+      "title": "$3,000 Work Setup Wishlist",
+      "running_total_limit": 3000,
+      "items": [
+        {
+          "id": "item-1",
+          "name": "Ergonomic Motorized Standing Desk",
+          "price": 850,
+          "category": "Hardware",
+          "image": "https://images.unsplash.com/photo-1762983870490-63e5ba07105b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHw0fHxzdGFuZGluZyUyMGRlc2slMjBzZXR1cCUyMGhpZ2glMjBlbmQlMjBtaWNyb3Bob25lJTIwd29ya3NwYWNlJTIwaXRlbXN8ZW58MHx8fHwxNzkzNzIxNTk3fDA&ixlib=rb-4.1.0&q=85",
+          "reason": "For high-energy growth strategy marathons and seamless posture shifts."
+        },
+        {
+          "id": "item-2",
+          "name": "Studio Broadcast Microphone & Arm",
+          "price": 450,
+          "category": "Voice & Audio",
+          "image": "https://images.unsplash.com/photo-1601856254555-a9c0ebef8af3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwxfHxzdGFuZGluZyUyMGRlc2slMjBzZXR1cCUyMGhpZ2glMjBlbmQlMjBtaWNyb3Bob25lJTIwd29ya3NwYWNlJTIwaXRlbXN8ZW58MHx8fHwxNzkzNzIxNTk3fDA&ixlib=rb-4.1.0&q=85",
+          "reason": "Crystal-clear voice dictation for Wispr Flow testing and creator sync calls."
+        },
+        {
+          "id": "item-3",
+          "name": "Cloud Compute & AI Model Credits",
+          "price": 900,
+          "category": "Infrastructure",
+          "image": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHx5b3VuZyUyMHRlY2glMjBwcm9mZXNzaW9uYWwlMjBzb2Z0d2FyZSUyMGRldmVsb3BlciUyMHdvcmslMjBzZXR1cHxlbnwwfHx8fDE3OTM3MjE1OTF8MA&ixlib=rb-4.1.0&q=85",
+          "reason": "Powering custom ML analytics scripts, automation flows, and LLM fine-tuning."
+        },
+        {
+          "id": "item-4",
+          "name": "Ergonomic Power-Nap Executive Pillow",
+          "price": 200,
+          "category": "Recovery",
+          "image": "https://images.unsplash.com/photo-1629934266257-69467879efa7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwyfHxzdGFuZGluZyUyMGRlc2slMjBzZXR1cCUyMGhpZ2glMjBlbmQlMjBtaWNyb3Bob25lJTIwd29ya3NwYWNlJTIwaXRlbXN8ZW58MHx8fHwxNzkzNzIxNTk3fDA&ixlib=rb-4.1.0&q=85",
+          "reason": "Recharging focus between deep analytical sprints and campaign launches."
+        },
+        {
+          "id": "item-5",
+          "name": "Mini Gourmet Tech Snack Counter",
+          "price": 600,
+          "category": "Fuel",
+          "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHx5b3VuZyUyMHRlY2glMjBwcm9mZXNzaW9uYWwlMjBzb2Z0d2FyZSUyMGRldmVsb3BlciUyMHdvcmslMjBzZXR1cHxlbnwwfHx8fDE3OTM3MjE1OTF8MA&ixlib=rb-4.1.0&q=85",
+          "reason": "Nootropic brews and high-protein brain food for sustained problem solving."
+        }
+      ]
+    },
+    "portfolio_ending_screen": {
+      "title": "Portfolio & Pitch to Wispr Flow",
+      "sections": [
+        "Executive Pitch Note: 'Why Hire Nandish for Wispr Flow Growth & Influencer Partnerships'",
+        "Core Skill Matrix: Growth Analytics, Influencer Campaign Ops, Vendor Tool Consolidation, BRD Drafting, SQL/Python",
+        "Key Accomplishments Grid at SuperTales",
+        "Wispr Grant Setup Summary",
+        "Downloadable Design-Prompt Document Modal Viewer",
+        "Direct Contact & Social Links (LinkedIn, Email, Schedule Meeting)"
+      ]
+    },
+    "design_prompt_document": {
+      "title": "Nandish's Master Prompt & Architecture Document",
+      "features": [
+        "In-app syntax-highlighted code/markdown viewer",
+        "One-click 'Copy to Clipboard' button with toast response",
+        "Direct file download trigger (.txt / .md)"
+      ]
+    }
+  },
+  "media_urls": {
+    "developer_setup": "https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHRlY2glMjBwcm9mZXNzaW9uYWwlMjBzb2Z0d2FyZSUyMGRldmVsb3BlciUyMHdvcmslMjBzZXR1cHxlbnwwfHx8fDE3OTM3MjE1OTF8MA&ixlib=rb-4.1.0&q=85",
+    "macbook_code": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHx5b3VuZyUyMHRlY2glMjBwcm9mZXNzaW9uYWwlMjBzb2Z0d2FyZSUyMGRldmVsb3BlciUyMHdvcmslMjBzZXR1cHxlbnwwfHx8fDE3OTM3MjE1OTF8MA&ixlib=rb-4.1.0&q=85",
+    "office_desk": "https://images.unsplash.com/photo-1762983870490-63e5ba07105b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHw0fHxzdGFuZGluZyUyMGRlc2slMjBzZXR1cCUyMGhpZ2glMjBlbmQlMjBtaWNyb3Bob25lJTIwd29ya3NwYWNlJTIwaXRlbXN8ZW58MHx8fHwxNzkzNzIxNTk3fDA&ixlib=rb-4.1.0&q=85",
+    "microphone": "https://images.unsplash.com/photo-1601856254555-a9c0ebef8af3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwxfHxzdGFuZGluZyUyMGRlc2slMjBzZXR1cCUyMGhpZ2glMjBlbmQlMjBtaWNyb3Bob25lJTIwd29ya3NwYWNlJTIwaXRlbXN8ZW58MHx8fHwxNzkzNzIxNTk3fDA&ixlib=rb-4.1.0&q=85"
+  },
+  "testing_and_accessibility": {
+    "data_testid_rules": "All interactive elements (buttons, level map nodes, choice radio options, reveal buttons, cart add/remove buttons, season selectors, copy prompt buttons) MUST have data-testid in kebab-case format.",
+    "examples": [
+      "data-testid=\"landing-start-button\"",
+      "data-testid=\"season-select-1-button\"",
+      "data-testid=\"level-node-1-1\"",
+      "data-testid=\"choice-option-0\"",
+      "data-testid=\"reveal-answer-button\"",
+      "data-testid=\"wishlist-add-item-1\"",
+      "data-testid=\"copy-design-prompt-button\"",
+      "data-testid=\"download-design-prompt-button\"",
+      "data-testid=\"hire-nandish-cta-button\""
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure author name is everywhere clearly specified as 'Nandish: The Journey'.",
+    "Use Lucide icons and Phosphor icons for level badges, locks, stars, coins, and wishlist cart items.",
+    "Maintain high dark-mode contrast with dark obsidian surfaces (#0B0F17) and neon accents (#10B981, #8B5CF6).",
+    "Implement state persistence (localStorage) so user level progress and wishlist selections persist during play.",
+    "Make Season 3 preview exciting with voice wave visualizer simulation for Wispr Flow.",
+    "Ensure all interactive components include proper data-testid attributes."
+  ]
+}
