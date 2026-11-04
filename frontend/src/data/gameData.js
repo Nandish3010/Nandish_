@@ -107,9 +107,9 @@ export const LEVELS = [
     actualMove:
       "Nandish chose the real work. He finished college with a 7.33 CGPA while doing real work alongside it: the placement club, class rep duties and an internship.",
     rationale:
-      "The bet was simple: skills and shipped work compound faster than a decimal on a transcript. A 7.33 that comes with real projects and real ownership is worth more to the kind of teams he wanted to join than a higher number with nothing behind it. Work over credentials.",
+      "Grades mattered, but so did experience. He put his energy into the placement club, class rep duties and an internship, and that hands-on work shaped what came next.",
     impact: ["Final CGPA: 7.33", "Prioritised hands-on work", "Built a 'work over credentials' mindset"],
-    badge: "Trade-Off Thinker",
+    badge: "Real-Work Builder",
     match: 1,
   },
   {
