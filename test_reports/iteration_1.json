@@ -1,0 +1,33 @@
+{
+  "summary": "Frontend-only E2E test of Nandish: The Journey (Playwright, desktop 1920x1080 + mobile 390x844). PASSED: landing (title, character image, Begin button -> /journey); journey map lock states (S2 locked + 'Complete Season 1' banner, locked-node toast, S3 locked); full play-through of all 9 levels 1.1->2.6 using choice-option-0/1/2 — reveal-panel appears every time with 'What Nandish actually did', rationale, impact chips, badge; choices disabled after reveal; complete-continue advances; 2.6 shows 'Finish Season 2 & unlock Season 3', toast 'Season 2 complete. Season 3 unlocked.' and S3 card turns dark with season3-open-button; progress persists after reload (nj_progress_v1). Wishlist: 5 toggles, total/count update correctly (850,1150,2250,2400,2800), remove works, progress bar 93%, header nav badge shows $2800, persists after reload. Pitch: unlocked hero + hire-to-unlock toast, all sections (skills/projects/interests/deliverables/contacts) render; reset-progress clears both LS keys and shows locked state with go-play-button. Design prompt: copy puts 4692 chars on clipboard + toast; download yields nandish-the-journey-design-prompt.md (4692 chars). Spelling: only 'Supertails' and 'Wispr' found; no SuperTales/SuperTails/Whisper on any page. Mobile menu works (4 nav items). FAILED: 2 bugs (below).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "LevelPlay.jsx (lines 23-31)", "issue": "Opening a locked level (e.g. /level/2.1 with no progress) or an invalid level (/level/9.9) by direct URL or page refresh shows a BLANK page (only the header). No redirect, no toast. Cause: navigate() and toast() are called during render, then the component returns null. React Router logs 'You should call navigate() in a React.useEffect()' and the navigation is dropped on first render. With client-side navigation the redirect works, but the toast 'That level is still locked.' fires twice.", "selector": "/level/:id", "priority": "HIGH"},
+      {"component": "Pitch.jsx Waveform (Season 3 hero)", "issue": "The animated waveform has no fixed height, so its container height changes all the time (bar heights animate 6px to ~44px). This moves everything below it up and down: the hire-to-unlock-button Y position swung 761px -> 794px within 1 second. Users see layout jitter, and Playwright cannot click the button without force=True ('element is not stable'). Fix: give the Waveform wrapper a fixed height, e.g. h-12.", "selector": "[data-testid='hire-to-unlock-button']", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Mobile header Sheet", "issues": ["Radix warning: DialogContent is missing DialogTitle and Description (accessibility). Add a VisuallyHidden SheetTitle and SheetDescription."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "LevelPlay.jsx: move the locked/invalid-level redirect out of render. Return <Navigate to='/journey' replace /> and show the toast once inside useEffect, so deep links and refreshes on locked or invalid levels redirect instead of showing a blank page.",
+    "Pitch.jsx: give the Waveform container a fixed height (e.g. className='flex h-12 items-end ...') so the content below stops moving.",
+    "Header.jsx mobile Sheet: add SheetTitle and SheetDescription (can be visually hidden) to clear the Radix accessibility warnings."
+  ],
+  "critical_code_review_comments": [
+    "LevelPlay calls navigate/toast as side effects during render. This is an anti-pattern: it breaks on the first render and runs twice under StrictMode.",
+    "LevelPlay handleContinue on the last level always shows the 'Season 3 unlocked' toast, even when replaying 2.6 after Season 3 is already unlocked. Minor.",
+    "GameContext useMemo has deps [completed, cart] but the functions are recreated on every render. This works, but useCallback or no memo would be cleaner. Minor.",
+    "Sum of all 5 wishlist items = $2800, below the $3000 goal (the UI shows $200 headroom). Check that this is intended."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend only)", "frontend": "92%"},
+  "seed_data_creation": "None. Only browser localStorage (nj_progress_v1, nj_wishlist_v1) was set or cleared in the test browser.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "All state is in localStorage. To unlock S3, seed nj_progress_v1 with all 9 ids. Wishlist item ids: item-standing-desk(850), item-mic(300), item-cloud-compute(1100), item-nap-pillow(150), item-snack-counter(400). Clicking hire-to-unlock-button needs force=True until the waveform jitter is fixed. Retest: direct load of /level/2.1 with empty progress should redirect to /journey with a single toast.",
+  "rca of the issue": "Blank page: LevelPlay returns null after calling navigate() synchronously in render. On a fresh mount (direct URL) React Router v6 ignores navigate before its effects are ready and only logs a warning, so the user is stuck on null content. Reproduce: localStorage nj_progress_v1='[]', then open /level/2.1 -> blank. Mitigation: use the <Navigate> component or a useEffect."
+}

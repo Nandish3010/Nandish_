@@ -11,13 +11,14 @@ import {
   Heart,
   Mail,
   Linkedin,
+  Github,
   RotateCcw,
 } from "lucide-react";
 import { PITCH, INTERESTS, SEASON3, CHARACTER } from "@/data/gameData";
 import { useGame } from "@/context/GameContext";
 
 const Waveform = () => (
-  <div className="flex items-end justify-center gap-1" aria-hidden>
+  <div className="flex h-12 items-end justify-center gap-1" aria-hidden>
     {Array.from({ length: 28 }).map((_, i) => (
       <motion.span
         key={i}
@@ -137,12 +138,14 @@ const Pitch = () => {
 
         <div className="mt-6 rounded-3xl border border-[#e7e2d8] bg-white p-6">
           <h3 className="flex items-center gap-2 font-display text-lg font-semibold">
-            <Heart className="h-4 w-4 text-[#4f46e5]" /> Things I am into
+            <Heart className="h-4 w-4 text-[#4f46e5]" /> Interests
           </h3>
+          <p className="mt-1 text-xs text-[#9a968c]">Placeholders for now, more coming soon.</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {INTERESTS.map((i) => (
               <span
                 key={i}
+                data-testid="interest-chip"
                 className="rounded-full border border-[#e7e2d8] bg-[#f7f5f1] px-3 py-1.5 text-sm font-medium text-[#2a2924]"
               >
                 {i}
@@ -191,11 +194,25 @@ const Pitch = () => {
                 <li key={c.label} className="flex items-center gap-3 text-sm">
                   {c.label === "LinkedIn" ? (
                     <Linkedin className="h-4 w-4 text-[#4f46e5]" />
+                  ) : c.label === "GitHub" ? (
+                    <Github className="h-4 w-4 text-[#4f46e5]" />
                   ) : (
                     <Mail className="h-4 w-4 text-[#4f46e5]" />
                   )}
                   <span className="font-medium text-[#16150f]">{c.label}</span>
-                  <span className="font-mono2 text-xs text-[#6b6a63]">{c.value}</span>
+                  {c.href ? (
+                    <a
+                      href={c.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-testid={`contact-${c.label.toLowerCase()}-link`}
+                      className="font-mono2 text-xs text-[#4f46e5] underline-offset-2 hover:underline"
+                    >
+                      {c.value}
+                    </a>
+                  ) : (
+                    <span className="font-mono2 text-xs text-[#6b6a63]">{c.value}</span>
+                  )}
                 </li>
               ))}
             </ul>

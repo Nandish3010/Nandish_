@@ -27,7 +27,7 @@ const Landing = () => {
           <p className="mt-5 max-w-md text-base leading-relaxed text-[#6b6a63] sm:text-lg">
             Play through my real life, from college to today. Every obstacle is a level.
             You choose what you would do, then I reveal what I actually did and why. Built for
-            the Wispr Flow team, by speaking it into existence.
+            the Wispr team, by speaking it into existence.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">

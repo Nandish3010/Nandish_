@@ -263,15 +263,8 @@ export const CHARACTER = {
   avatar: "https://static.prod-images.emergentagent.com/jobs/43b85d9b-55ab-4247-b88f-93276a6d53c8/images/cd803239899c19febcc44fadf259e4465eff6a3db2a6a02eb6c8040ebbc9acef.jpeg",
 };
 
-// Editable: the things Nandish is into. Shown on the About / Pitch screen.
-export const INTERESTS = [
-  "Building with AI agents",
-  "Voice-first workflows",
-  "Growth and influencer marketing",
-  "Data and dashboards",
-  "Adventure and skydiving",
-  "Shipping fast with Emergent",
-];
+// Editable: replace these placeholders with Nandish's real interests.
+export const INTERESTS = ["[Interest 1]", "[Interest 2]", "[Interest 3]", "[Interest 4]"];
 
 export const WISHLIST_GOAL = 3000;
 
@@ -295,14 +288,15 @@ export const PITCH = {
     "This interactive life-journey game, built with Emergent and voice",
   ],
   closing:
-    "Season 3 stays locked on purpose. To unlock the full season, hire Nandish for the Wispr Flow growth and influencer partnerships team.",
+    "Season 3 stays locked on purpose. To unlock the full season, hire Nandish for the Wispr growth and influencer partnerships team.",
   deliverables: [
     { label: "Portfolio link", value: "[FILL: portfolio link]" },
     { label: "Submission video", value: "[FILL: video link]" },
     { label: "$3,000 grant note", value: "See the Work Setup Wishlist" },
   ],
   contacts: [
-    { label: "LinkedIn", value: "[FILL: LinkedIn URL]" },
+    { label: "LinkedIn", value: "nandish-s-2291541a4", href: "https://www.linkedin.com/in/nandish-s-2291541a4" },
+    { label: "GitHub", value: "nandish3010", href: "https://github.com/nandish3010" },
     { label: "Email", value: "[FILL: email]" },
   ],
 };

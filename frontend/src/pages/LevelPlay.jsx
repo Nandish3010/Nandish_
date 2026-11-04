@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useParams, useNavigate, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { ChevronLeft, Lightbulb, Trophy, ArrowRight, CheckCircle2 } from "lucide-react";
@@ -14,32 +14,39 @@ const LevelPlay = () => {
   const level = LEVELS.find((l) => l.id === id);
   const [selected, setSelected] = useState(null);
   const revealed = selected !== null;
+  const unlocked = level ? isLevelUnlocked(level.id) || isCompleted(level.id) : false;
+  const toastedRef = useRef(false);
 
   useEffect(() => {
     setSelected(null);
+    toastedRef.current = false;
     window.scrollTo(0, 0);
   }, [id]);
 
-  if (!level) {
-    navigate("/journey");
-    return null;
-  }
-  if (!isLevelUnlocked(level.id) && !isCompleted(level.id)) {
-    toast("That level is still locked.");
-    navigate("/journey");
-    return null;
+  useEffect(() => {
+    if (level && !unlocked && !toastedRef.current) {
+      toastedRef.current = true;
+      toast("That level is still locked.");
+    }
+  }, [level, unlocked]);
+
+  if (!level || !unlocked) {
+    return <Navigate to="/journey" replace />;
   }
 
   const nextId = nextLevelId(level.id);
+  const replay = isCompleted(level.id);
 
   const handleContinue = () => {
     completeLevel(level.id);
     if (nextId) {
       navigate(`/level/${nextId}`);
     } else {
-      toast.success("Season 2 complete. Season 3 unlocked.", {
-        description: "The Wispr Level is now open.",
-      });
+      if (!replay) {
+        toast.success("Season 2 complete. Season 3 unlocked.", {
+          description: "The Wispr Level is now open.",
+        });
+      }
       navigate("/journey");
     }
   };
