@@ -49,7 +49,23 @@ export const LEVELS = [
   {
     id: "1.2",
     season: 1,
+    title: "The Class Rep Call",
+    objective: "Take the class representative role, or pass on it.",
+    situation:
+      "You are offered the chance to be the class representative. It means being the link between students and professors, and handling everyone's concerns on top of your own work.",
+    choices: ["Take up the class rep role", "Pass on it and focus on your own work"],
+    actualMove: "Nandish took the class representative role.",
+    rationale:
+      "He believed he was a good leader and could communicate things between students and professors in a good way.",
+    impact: ["Became class representative", "Bridged students and professors", "First leadership role"],
+    badge: "The Bridge",
+    match: 0,
+  },
+  {
+    id: "1.3",
+    season: 1,
     title: "The COVID Year",
+    easterEgg: true,
     objective: "Decide what to do with the time at home.",
     situation:
       "COVID hits and college moves online. Suddenly there is a lot of free time at home and nobody is checking how you spend it.",
@@ -62,7 +78,7 @@ export const LEVELS = [
     match: 2,
   },
   {
-    id: "1.3",
+    id: "1.4",
     season: 1,
     title: "The Placement Club",
     objective: "Take the placement club role, or focus on studies.",
@@ -78,7 +94,7 @@ export const LEVELS = [
     match: 0,
   },
   {
-    id: "1.4",
+    id: "1.5",
     season: 1,
     title: "The CGPA Dilemma",
     objective: "Balance college with real work.",
@@ -98,7 +114,7 @@ export const LEVELS = [
     match: 1,
   },
   {
-    id: "1.5",
+    id: "1.6",
     season: 1,
     title: "Landing the Supertails Internship",
     objective: "Convert the opportunity into the first break.",

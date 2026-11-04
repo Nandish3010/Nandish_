@@ -26,6 +26,39 @@ const MatchBanner = ({ level, choice }) => {
   );
 };
 
+const StrawHat = () => (
+  <button
+    data-testid="one-piece-easter-egg"
+    aria-label="A mysterious straw hat"
+    onClick={() =>
+      toast("You found the straw hat!", {
+        id: "one-piece",
+        description:
+          "Nandish's COVID-season anime was One Piece. He set sail with the Straw Hats instead of opening his textbooks.",
+      })
+    }
+    className="absolute right-4 top-4 opacity-40 transition-transform hover:rotate-12 hover:scale-125 hover:opacity-100"
+  >
+    <svg width="28" height="18" viewBox="0 0 28 18" aria-hidden>
+      <ellipse cx="14" cy="14" rx="13" ry="3.5" fill="#e9c46a" />
+      <path d="M7 14 C7 4, 21 4, 21 14 Z" fill="#f4d58d" />
+      <rect x="7.3" y="10.5" width="13.4" height="2.4" fill="#d62828" />
+    </svg>
+  </button>
+);
+
+const LiveScore = () => {
+  const { matchedCount, answeredCount } = useGame();
+  return (
+    <span
+      data-testid="live-match-score"
+      className="inline-flex items-center gap-1.5 rounded-full bg-[#eef0ff] px-3 py-1 text-xs font-bold text-[#4f46e5]"
+    >
+      <PartyPopper className="h-3.5 w-3.5" /> Matched so far: {matchedCount} / {answeredCount}
+    </span>
+  );
+};
+
 const LevelPlay = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -68,15 +101,19 @@ const LevelPlay = () => {
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
-      <Link
-        to="/journey"
-        className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-[#6b6a63] hover:text-[#16150f]"
-        data-testid="back-to-map-link"
-      >
-        <ChevronLeft className="h-4 w-4" /> Journey map
-      </Link>
+      <div className="mb-6 flex items-center justify-between gap-3">
+        <Link
+          to="/journey"
+          className="inline-flex items-center gap-1 text-sm font-medium text-[#6b6a63] hover:text-[#16150f]"
+          data-testid="back-to-map-link"
+        >
+          <ChevronLeft className="h-4 w-4" /> Journey map
+        </Link>
+        <LiveScore />
+      </div>
 
-      <div className="rounded-3xl border border-[#e7e2d8] bg-white p-6 shadow-[0_10px_40px_rgba(22,21,15,0.05)] sm:p-8">
+      <div className="relative rounded-3xl border border-[#e7e2d8] bg-white p-6 shadow-[0_10px_40px_rgba(22,21,15,0.05)] sm:p-8">
+        {level.easterEgg && <StrawHat />}
         <span className="font-mono2 text-xs font-bold uppercase tracking-wider text-[#4f46e5]">
           Level {level.id} · Season {level.season}
         </span>
