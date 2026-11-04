@@ -3,10 +3,10 @@ import { LEVELS, WISHLIST_ITEMS, WISHLIST_GOAL } from "@/data/gameData";
 
 const GameContext = createContext(null);
 
-const PROGRESS_KEY = "nj_progress_v3";
+const PROGRESS_KEY = "nj_progress_v4";
 const WISHLIST_KEY = "nj_wishlist_v1";
-const ANSWERS_KEY = "nj_answers_v2";
-const EGGS_KEY = "nj_eggs_v1";
+const ANSWERS_KEY = "nj_answers_v3";
+const EGGS_KEY = "nj_eggs_v2";
 
 export const isMatch = (level, choice) => level.match === "all" || level.match === choice;
 

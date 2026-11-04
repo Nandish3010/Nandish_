@@ -32,7 +32,7 @@ export const EASTER_EGGS = [
   },
   {
     id: "coin",
-    level: "2.5",
+    level: "2.4",
     badge: "Coin Collector",
     Icon: Coins,
     color: "text-[#d4a017] animate-[spin_3s_linear_infinite]",
@@ -41,7 +41,7 @@ export const EASTER_EGGS = [
   },
   {
     id: "scissors",
-    level: "2.6",
+    level: "2.5",
     badge: "Step Snipper",
     Icon: Scissors,
     color: "text-[#4f46e5]",
@@ -50,7 +50,7 @@ export const EASTER_EGGS = [
   },
   {
     id: "paw",
-    level: "1.6",
+    level: "1.5",
     badge: "Paw Print",
     Icon: PawPrint,
     color: "text-[#8b5cf6] fill-[#8b5cf6]/30",

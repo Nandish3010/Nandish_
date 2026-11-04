@@ -95,26 +95,6 @@ export const LEVELS = [
   {
     id: "1.5",
     season: 1,
-    title: "The CGPA Dilemma",
-    objective: "Balance college with real work.",
-    situation:
-      "College is in full swing. Lectures, exams and attendance all compete for your time, but the work that actually teaches you (real projects, real responsibility) lives outside the syllabus. Chasing a perfect grade would mean saying no to the hands-on work that excites you. Chasing the work could pull your CGPA down.",
-    choices: [
-      "Go all-in on academics and protect a top CGPA.",
-      "Split time pragmatically: pass comfortably, pour the rest into real work.",
-      "Drop the real work entirely until after graduation.",
-    ],
-    actualMove:
-      "Nandish chose the real work. He finished college with a 7.33 CGPA while doing real work alongside it: the placement club, class rep duties and an internship.",
-    rationale:
-      "Grades mattered, but so did experience. He put his energy into the placement club, class rep duties and an internship, and that hands-on work shaped what came next.",
-    impact: ["Final CGPA: 7.33", "Prioritised hands-on work", "Built a 'work over credentials' mindset"],
-    badge: "Real-Work Builder",
-    match: 1,
-  },
-  {
-    id: "1.6",
-    season: 1,
     title: "Landing the Supertails Internship",
     objective: "Convert the opportunity into the first break.",
     situation:
@@ -127,7 +107,7 @@ export const LEVELS = [
     actualMove:
       "Nandish took the internship at Supertails and committed to it fully, closing out Season 1 with college done and a real role secured.",
     rationale:
-      "A first break is only worth it if you fully step through the door. Committing to Supertails gave him a real environment to prove the 'work over credentials' bet and opened the entire Season 2 career arc.",
+      "A first break is only worth it if you fully step through the door. Committing to Supertails gave him a real environment to prove himself and opened the entire Season 2 career arc.",
     impact: ["Completed college", "Internship secured at Supertails", "Season 1 complete"],
     badge: "First Break",
     match: 1,
@@ -138,49 +118,29 @@ export const LEVELS = [
     id: "2.1",
     season: 2,
     title: "Operations Intern to Data Analyst",
-    objective: "Earn the move from operations into data.",
+    objective: "Turn a college-mandated internship into a career move.",
     situation:
-      "You start at Supertails as an operations intern. The work is hands-on and messy, but you keep noticing that the real leverage sits in the data behind the operations. Staying 'just the ops intern' is comfortable. Pushing toward data means proving you can do work nobody asked you for yet.",
+      "College needs you to complete an internship, so you join Supertails as an operations intern. The team likes how you think and how fast you execute, and sends you into the operations center itself. On the floor, you keep noticing that every problem leaves a trail in the data. Do you stay the fast ops intern, or follow the data?",
     choices: [
-      "Master the operations role and stay in your lane.",
-      "Use the ops vantage point to start doing data work and prove the value.",
-      "Ask for the data title first, then learn it later.",
+      "Stay in ops and become the fastest intern on the floor.",
+      "Show your interest in data and ask for a shot at analysis.",
+      "Finish the internship hours and move on.",
     ],
     actualMove:
-      "Nandish used his operations seat to move onto the data analyst path at Supertails, letting the quality of the data work make the case for the transition.",
+      "Nandish raised his hand for data. Supertails saw the interest and the thinking behind it, and gave him the chance to explore the data analyst role, first as a data analyst intern.",
     rationale:
-      "Operations gave him ground truth about how the business actually ran. Turning that into analysis made the shift into a data analyst role a natural next step rather than a leap of faith for the team.",
-    impact: ["Operations intern to data analyst path", "Earned the move through work", "Found his leverage in data"],
+      "Speed got him noticed in operations; curiosity about the data moved him beyond it. The ops floor taught him how the business really runs, which is exactly what made his analysis useful.",
+    impact: ["Sent to the operations center", "Noticed for speed and thinking", "Became a data analyst intern"],
     badge: "Earned The Move",
     match: 1,
   },
   {
     id: "2.2",
     season: 2,
-    title: "The Break",
-    objective: "Step away for personal reasons, then come back stronger.",
-    situation:
-      "Momentum is building, and then life intervenes. For personal reasons you need to step away for three to four months. The easy narrative says a gap will stall everything. The honest choice is to take the time you actually need.",
-    choices: [
-      "Push through and ignore the personal situation.",
-      "Take the three-to-four month break for personal reasons.",
-      "Quit entirely and restart somewhere new later.",
-    ],
-    actualMove:
-      "Nandish took a three-to-four month break for personal reasons, then returned to Supertails and picked the journey back up.",
-    rationale:
-      "Sustainable careers are not straight lines. Taking the break honestly and returning with intent is what made the business analyst chapter possible, instead of burning out or walking away.",
-    impact: ["Three-to-four month break", "Returned to Supertails", "Protected long-term momentum"],
-    badge: "The Comeback",
-    match: 1,
-  },
-  {
-    id: "2.3",
-    season: 2,
     title: "Business Analyst Breakthrough",
     objective: "Turn raw data into dashboards, pipelines and RCAs.",
     situation:
-      "Back at Supertails and now on the business analyst path, you are handed the messy middle: scattered data, questions without clean answers, and leaders who need to know not just what happened but why. You can report numbers, or you can build the machinery that explains them.",
+      "Now a business analyst at Supertails, you are handed the messy middle: scattered data, questions without clean answers, and leaders who need to know not just what happened but why. You can report numbers, or you can build the machinery that explains them.",
     choices: [
       "Pull one-off reports whenever someone asks.",
       "Build dashboards, data pipelines and run proper RCAs.",
@@ -195,7 +155,7 @@ export const LEVELS = [
     match: 1,
   },
   {
-    id: "2.4",
+    id: "2.3",
     season: 2,
     title: "Nifty Vendor Portal",
     objective: "Give vendors one place for their POs, listings and numbers.",
@@ -215,7 +175,7 @@ export const LEVELS = [
     match: 1,
   },
   {
-    id: "2.5",
+    id: "2.4",
     season: 2,
     title: "The Loyalty 'coins' Project",
     objective: "Own the coins loyalty program end to end.",
@@ -243,7 +203,7 @@ export const LEVELS = [
     match: "all",
   },
   {
-    id: "2.6",
+    id: "2.5",
     season: 2,
     title: "From 10 Steps to 3",
     objective: "Cut the build process down to what actually matters.",
@@ -263,7 +223,7 @@ export const LEVELS = [
     match: 1,
   },
   {
-    id: "2.7",
+    id: "2.6",
     season: 2,
     title: "One App, One BRD",
     objective: "Consolidate workflows and master the BRD process.",
