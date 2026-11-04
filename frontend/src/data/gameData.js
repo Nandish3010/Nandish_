@@ -137,48 +137,56 @@ export const LEVELS = [
       "Outsource the analysis and just present slides.",
     ],
     actualMove:
-      "Nandish built dashboards, set up data pipelines and ran RCAs (root cause analyses) so the business could see what was happening and understand why.",
+      "Nandish built dashboards, set up data pipelines, ran RCAs (root cause analyses) and made the target plan: what can be achieved and how to achieve it.",
     rationale:
       "Dashboards answer 'what', pipelines keep the answers fresh, and RCAs answer 'why'. Together they turn a reactive analyst into someone the business relies on to make decisions.",
-    impact: ["Built dashboards", "Set up data pipelines", "Ran RCAs on key problems"],
+    impact: ["Built dashboards", "Set up data pipelines", "Ran RCAs on key problems", "Owned target planning"],
     badge: "Root Cause",
   },
   {
     id: "2.4",
     season: 2,
-    title: "Target Planning & Vendor Analytics",
-    objective: "Plan targets and give vendors their own analytics.",
+    title: "Nifty Vendor Portal used by vendors for purchase orders listing and update",
+    objective: "Give vendors one place for their POs, listings and numbers.",
     situation:
-      "Growth needs direction. Leadership needs credible targets, and the vendors you work with need visibility into their own performance. Right now both live in spreadsheets and gut feel.",
+      "AI is changing how fast things can be built. Vendors need to check their purchase orders, update listings and see how they are doing on the platform, but today that lives in spreadsheets and back-and-forth messages.",
     choices: [
-      "Set targets top-down and leave vendors in the dark.",
-      "Build target planning plus a vendor analytics tool.",
+      "Keep handling vendor requests manually.",
+      "Build a vendor portal where vendors can self-serve.",
       "Wait for someone else to own this.",
     ],
     actualMove:
-      "Nandish took on target planning and built a vendor analytics tool so vendors could see and act on their own numbers.",
+      "Nandish built his first app: a vendor portal where vendors can see their analytics, check the POs they were given, edit their listings and track their revenue on the platform.",
     rationale:
-      "Targets only work when the people responsible can see where they stand. Giving vendors their own analytics turned planning from a one-way instruction into a shared, measurable game.",
-    impact: ["Owned target planning", "Built a vendor analytics tool", "Gave vendors self-serve visibility"],
-    badge: "Target Locked",
+      "Giving vendors self-serve access removed daily back-and-forth and let them act on their own numbers, turning a manual process into a product.",
+    impact: ["Built his first app", "POs, listings and revenue in one place", "Gave vendors self-serve visibility"],
+    badge: "Portal Live",
   },
   {
     id: "2.5",
     season: 2,
-    title: "The AI & Loyalty 'coins' Project",
-    objective: "Ship the loyalty coins program with an AI edge.",
+    title: "The Loyalty 'coins' Project",
+    objective: "Own the coins loyalty program end to end.",
     situation:
-      "Retention matters as much as acquisition. There is an opportunity to build a loyalty program (the coins) and use AI to make it smart rather than a flat rewards scheme. This is a build with real product stakes, not just a report.",
+      "Retention matters as much as acquisition. Supertails is launching coins, a loyalty program that gives customers coins based on their transactions on the platform. There are many parts to own. Which one would you pick?",
     choices: [
-      "Ship a basic flat-rewards loyalty scheme.",
-      "Build the AI and loyalty coins project properly.",
-      "Recommend buying an off-the-shelf tool and stop there.",
+      "I own the go-to-market",
+      "Sizing the impact",
+      "Picking the top of formula",
+      "Building the algorithm to occur",
+      "Finding final leaks after launch",
     ],
     actualMove:
-      "Nandish worked on the AI and loyalty coins project, combining a loyalty coins program with AI to make it smarter.",
+      "Nandish owned all of it: the BRD, testing the product and the go-to-market for coins, the loyalty program that rewards customers with coins based on their transactions.",
     rationale:
-      "Loyalty is where data, product and growth meet. Pairing the coins with AI meant the program could adapt instead of handing everyone the same reward, which is exactly the kind of growth lever that compounds.",
-    impact: ["Shipped the loyalty coins program", "Added an AI layer", "Connected data, product and growth"],
+      "Loyalty is where data, product and growth meet. Owning every step from sizing to launch to post-launch fixes meant nothing fell between teams.",
+    impact: [
+      "I own the go-to-market",
+      "Sizing the impact",
+      "Picking the top of formula",
+      "Building the algorithm to occur",
+      "Finding final leaks after launch",
+    ],
     badge: "Coins Minted",
   },
   {
@@ -194,10 +202,10 @@ export const LEVELS = [
       "Ask engineering to figure out the requirements themselves.",
     ],
     actualMove:
-      "Nandish consolidated the scattered workflows into a single app and owned the BRD (Business Requirements Document) creation process to get it built.",
+      "Nandish consolidated the scattered workflows into a single app and owned the BRD (Business Requirements Document) creation process to get it built. Today, he is Manager, Data & AI at Supertails.",
     rationale:
       "Consolidation removes friction for everyone, and the BRD is how an analyst turns a vision into something engineering can actually build. Owning that process is what separates someone who reports on work from someone who ships it.",
-    impact: ["Consolidated workflows into one app", "Owned the BRD creation process", "Turned vision into shipped product"],
+    impact: ["Consolidated workflows into one app", "Owned the BRD creation process", "Now Manager, Data & AI at Supertails"],
     badge: "Ship It",
   },
 ];
@@ -233,10 +241,10 @@ export const WISHLIST_ITEMS = [
     image: "https://images.unsplash.com/photo-1625123628039-6053583b86cc?crop=entropy&cs=srgb&fm=jpg&q=85&w=940",
   },
   {
-    id: "item-cloud-compute",
-    name: "Cloud compute for managing AI agents",
+    id: "item-claude",
+    name: "Claude for managing AI agents",
     price: 1100,
-    category: "Infrastructure",
+    category: "AI",
     reason: "Run and manage the AI agents that power the automations and analytics.",
     image: "https://images.unsplash.com/photo-1792164559462-425260f43099?crop=entropy&cs=srgb&fm=jpg&q=85&w=940",
   },
@@ -263,8 +271,12 @@ export const CHARACTER = {
   avatar: "https://static.prod-images.emergentagent.com/jobs/43b85d9b-55ab-4247-b88f-93276a6d53c8/images/cd803239899c19febcc44fadf259e4465eff6a3db2a6a02eb6c8040ebbc9acef.jpeg",
 };
 
-// Editable: replace these placeholders with Nandish's real interests.
-export const INTERESTS = ["[Interest 1]", "[Interest 2]", "[Interest 3]", "[Interest 4]"];
+export const INTERESTS = [
+  "Problem solving or problem identification",
+  "AI",
+  "Watching anime",
+  "Doing adventure activities",
+];
 
 export const WISHLIST_GOAL = 3000;
 
@@ -276,27 +288,23 @@ export const PITCH = {
     "Growth analytics and dashboards",
     "Data pipelines and RCAs",
     "Target planning and vendor analytics",
-    "AI and loyalty (the coins program)",
+    "Loyalty program GTM (the coins program)",
     "Workflow consolidation into a single app",
     "BRD creation and end-to-end delivery",
   ],
   projects: [
     "Dashboards, pipelines and RCAs at Supertails",
-    "Target planning and the vendor analytics tool",
-    "The AI and loyalty coins project",
+    "Target planning and the Nifty Vendor Portal",
+    "The coins loyalty program, from BRD to go-to-market",
     "Consolidating workflows into a single app via the BRD process",
     "This interactive life-journey game, built with Emergent and voice",
   ],
   closing:
     "Season 3 stays locked on purpose. To unlock the full season, hire Nandish for the Wispr growth and influencer partnerships team.",
-  deliverables: [
-    { label: "Portfolio link", value: "[FILL: portfolio link]" },
-    { label: "Submission video", value: "[FILL: video link]" },
-    { label: "$3,000 grant note", value: "See the Work Setup Wishlist" },
-  ],
+  deliverables: [{ label: "$3,000 grant note", value: "See the Work Setup Wishlist" }],
   contacts: [
     { label: "LinkedIn", value: "nandish-s-2291541a4", href: "https://www.linkedin.com/in/nandish-s-2291541a4" },
     { label: "GitHub", value: "nandish3010", href: "https://github.com/nandish3010" },
-    { label: "Email", value: "[FILL: email]" },
+    { label: "Email", value: "nandish.s0110@gmail.com", href: "mailto:nandish.s0110@gmail.com" },
   ],
 };

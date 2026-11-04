@@ -11,6 +11,8 @@ Calm ivory and indigo look, cartoon character based on the user's photo, dark Wi
 - June 2026: fixed blank page on locked level (now redirects), waveform jitter, mobile menu a11y (SheetTitle/Description), duplicate or missing locked toast; replaced "Wispr Flow" with "Wispr" everywhere; Interests now uses placeholders; added LinkedIn and GitHub links; wishlist count now says "1 item"
 
 ## Backlog
+- June 2026 (2): tab title set; real interests, email, LinkedIn and GitHub added; portfolio and video links removed; design page renamed "How I Build This with Voice" (Dubai story plus spoken prompts); 2.4 became the Nifty Vendor Portal; 2.5 coins now shows 5 owned steps with no AI claim; 2.6 adds Manager, Data & AI; wishlist item is now Claude
+- P1: Season 1 levels from the original prompt that aren't built yet (stream choice, class rep, COVID, placement club head)
 - P0: user review of the visuals (character, wishlist images)
 - P1: real interests, email, portfolio and video links (still [FILL] placeholders)
 - P2: shareable saved progress (Phase 2)

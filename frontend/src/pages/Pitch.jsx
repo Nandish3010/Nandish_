@@ -140,7 +140,6 @@ const Pitch = () => {
           <h3 className="flex items-center gap-2 font-display text-lg font-semibold">
             <Heart className="h-4 w-4 text-[#4f46e5]" /> Interests
           </h3>
-          <p className="mt-1 text-xs text-[#9a968c]">Placeholders for now, more coming soon.</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {INTERESTS.map((i) => (
               <span
@@ -169,7 +168,7 @@ const Pitch = () => {
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold"
               data-testid="pitch-design-prompt-link"
             >
-              <FileText className="h-4 w-4" /> Read the design prompt
+              <FileText className="h-4 w-4" /> How I Build This with Voice
             </Link>
           </div>
         </div>

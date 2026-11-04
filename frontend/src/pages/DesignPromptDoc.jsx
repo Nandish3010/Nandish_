@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { Copy, Check, Download, FileText } from "lucide-react";
+import { Copy, Check, Download, Mic } from "lucide-react";
 import { DESIGN_PROMPT } from "@/data/designPrompt";
 
 const DesignPromptDoc = () => {
@@ -10,7 +10,7 @@ const DesignPromptDoc = () => {
     try {
       await navigator.clipboard.writeText(DESIGN_PROMPT);
       setCopied(true);
-      toast.success("Design prompt copied to clipboard.");
+      toast.success("Copied to clipboard.");
       setTimeout(() => setCopied(false), 2000);
     } catch {
       toast.error("Could not copy. Select the text manually.");
@@ -22,12 +22,12 @@ const DesignPromptDoc = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "nandish-the-journey-design-prompt.md";
+    a.download = "how-i-build-this-with-voice.md";
     document.body.appendChild(a);
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
-    toast.success("Downloaded the design prompt.");
+    toast.success("Downloaded.");
   };
 
   return (
@@ -35,14 +35,13 @@ const DesignPromptDoc = () => {
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <span className="font-mono2 text-xs font-bold uppercase tracking-wider text-[#4f46e5]">
-            The blueprint
+            Built from Dubai, by voice
           </span>
           <h1 className="mt-1 flex items-center gap-2 font-display text-3xl font-black tracking-tight">
-            <FileText className="h-7 w-7 text-[#4f46e5]" /> Design Prompt
+            <Mic className="h-7 w-7 text-[#4f46e5]" /> How I Build This with Voice
           </h1>
           <p className="mt-2 max-w-xl text-[#6b6a63]">
-            The single, copy/paste-ready prompt that captures this entire game concept. Hand it to
-            any team or AI designer to rebuild it.
+            The story of building this game on vacation, and the actual prompts I spoke into Wispr.
           </p>
         </div>
         <div className="flex gap-2">
@@ -70,7 +69,7 @@ const DesignPromptDoc = () => {
           <span className="h-3 w-3 rounded-full bg-[#f59e0b]/70" />
           <span className="h-3 w-3 rounded-full bg-[#10b981]/70" />
           <span className="ml-3 font-mono2 text-xs text-[#6b6a63]">
-            nandish-the-journey-design-prompt.md
+            how-i-build-this-with-voice.md
           </span>
         </div>
         <pre className="max-h-[70vh] overflow-auto whitespace-pre-wrap break-words px-5 py-6 font-mono2 text-[13px] leading-relaxed text-[#2a2924]">
