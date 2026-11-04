@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
-import { ChevronLeft, Lightbulb, Trophy, ArrowRight, CheckCircle2, PartyPopper, Shuffle } from "lucide-react";
+import { ChevronLeft, Lightbulb, Trophy, ArrowRight, CheckCircle2, PartyPopper, Shuffle, SkipForward } from "lucide-react";
 import { LEVELS, CHARACTER } from "@/data/gameData";
 import { useGame, isMatch } from "@/context/GameContext";
 import { EasterEgg } from "@/components/EasterEgg";
@@ -42,7 +42,7 @@ const LiveScore = () => {
 const LevelPlay = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { isLevelUnlocked, completeLevel, nextLevelId, isCompleted, recordAnswer } = useGame();
+  const { isLevelUnlocked, completeLevel, skipLevel, nextLevelId, isCompleted, recordAnswer } = useGame();
 
   const level = LEVELS.find((l) => l.id === id);
   const [selected, setSelected] = useState(null);
@@ -77,6 +77,11 @@ const LevelPlay = () => {
       }
       navigate("/results");
     }
+  };
+
+  const handleSkip = () => {
+    skipLevel(level.id);
+    navigate(nextId ? `/level/${nextId}` : "/results");
   };
 
   return (
@@ -139,6 +144,18 @@ const LevelPlay = () => {
             );
           })}
         </div>
+
+        {!revealed && (
+          <div className="mt-5 flex justify-center">
+            <button
+              onClick={handleSkip}
+              data-testid="skip-level-button"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-[#9a968c] transition-colors hover:text-[#16150f]"
+            >
+              <SkipForward className="h-3.5 w-3.5" /> Skip level
+            </button>
+          </div>
+        )}
 
         <AnimatePresence>
           {revealed && (

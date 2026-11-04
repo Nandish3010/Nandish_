@@ -2,7 +2,8 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toPng } from "html-to-image";
 import { toast } from "sonner";
-import { Download, Rocket, Map, Copy } from "lucide-react";
+import { motion } from "framer-motion";
+import { Download, Lock, Sparkles, Map, Copy } from "lucide-react";
 import { LEVELS, CHARACTER } from "@/data/gameData";
 import { useGame, isMatch } from "@/context/GameContext";
 import { EASTER_EGGS } from "@/components/EasterEgg";
@@ -133,13 +134,50 @@ export default function Results() {
         >
           <Copy className="h-4 w-4" /> Copy share message
         </button>
-        <Link to="/pitch" data-testid="results-season3-link" className="inline-flex items-center gap-2 rounded-full bg-[#16150f] px-6 py-3 font-semibold text-white">
-          <Rocket className="h-4 w-4" /> Open Season 3
-        </Link>
         <Link to="/journey" data-testid="results-journey-link" className="inline-flex items-center gap-2 rounded-full border border-[#d9d4c9] bg-white px-6 py-3 font-semibold text-[#16150f]">
           <Map className="h-4 w-4" /> Journey map
         </Link>
       </div>
+
+      <motion.section
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        data-testid="results-season3-teaser"
+        className="mt-10 w-full rounded-[28px] border-2 border-[#f59e0b]/40 bg-[#121212] p-7 text-white shadow-[0_0_60px_-15px_rgba(245,158,11,0.5)] sm:p-10"
+      >
+        <div className="flex items-center gap-2 font-mono2 text-xs uppercase tracking-[0.2em] text-[#f59e0b]">
+          <Lock className="h-4 w-4" /> Season 3 · The Wispr Level
+        </div>
+        <h2 className="mt-4 font-display text-3xl font-black sm:text-4xl">The next season is locked.</h2>
+        <p className="mt-3 max-w-2xl text-white/70">
+          Seasons 1 and 2 got Nandish here. Season 3 is where he takes Wispr Flow to India, and it only unlocks one way.
+        </p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+            <div className="font-mono2 text-sm text-[#f59e0b]">3.1</div>
+            <div className="mt-1 font-semibold">Taking Wispr Flow to India</div>
+          </div>
+          {[
+            ["3.2", "Growing the voice-first habit"],
+            ["3.3", "The next chapter"],
+          ].map(([id, title]) => (
+            <div key={id} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <div className="flex items-center justify-between font-mono2 text-sm text-[#f59e0b]">
+                {id} <Lock className="h-3.5 w-3.5 text-white/50" />
+              </div>
+              <div className="mt-1 select-none font-semibold blur-sm">{title}</div>
+            </div>
+          ))}
+        </div>
+        <Link
+          to="/pitch"
+          data-testid="results-season3-cta"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#f59e0b] px-7 py-4 text-base font-bold text-[#121212] transition-transform hover:-translate-y-0.5"
+        >
+          <Sparkles className="h-5 w-5" /> Hire me to unlock Season 3
+        </Link>
+      </motion.section>
     </main>
   );
 }

@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
-import { Check, Lock, Play, Star, Mic, ArrowRight } from "lucide-react";
+import { Check, Lock, Play, Star, Mic, ArrowRight, FastForward, RotateCcw } from "lucide-react";
 import { SEASONS, LEVELS, SEASON3 } from "@/data/gameData";
 import { useGame } from "@/context/GameContext";
 
-const SeasonHeader = ({ season, done, total }) => (
+const SeasonHeader = ({ season, done, total, onSkip }) => (
   <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
     <div>
       <span className="font-mono2 text-xs font-bold uppercase tracking-wider text-[#4f46e5]">
@@ -15,9 +15,20 @@ const SeasonHeader = ({ season, done, total }) => (
       <p className="mt-1 text-sm text-[#6b6a63]">{season.tagline}</p>
     </div>
     <div className="text-right">
-      <span className="font-mono2 text-sm font-bold">
-        {done}/{total}
-      </span>
+      {onSkip && (
+        <button
+          onClick={onSkip}
+          data-testid={`skip-season-${season.id}`}
+          className="mb-1.5 inline-flex items-center gap-1 rounded-full border border-[#d9d4c9] px-2.5 py-1 text-xs font-medium text-[#6b6a63] transition-colors hover:bg-[#f7f5f1] hover:text-[#16150f]"
+        >
+          <FastForward className="h-3 w-3" /> Skip season
+        </button>
+      )}
+      <div>
+        <span className="font-mono2 text-sm font-bold">
+          {done}/{total}
+        </span>
+      </div>
       <div className="mt-1 h-1.5 w-32 overflow-hidden rounded-full bg-[#e7e2d8]">
         <div
           className="h-full rounded-full bg-[#4f46e5] transition-all"
@@ -98,7 +109,28 @@ const LevelNode = ({ level, state, idx }) => {
 };
 
 const Journey = () => {
-  const { isCompleted, isLevelUnlocked, isSeasonUnlocked, isSeasonComplete } = useGame();
+  const navigate = useNavigate();
+  const {
+    completed,
+    isCompleted,
+    isLevelUnlocked,
+    isSeasonUnlocked,
+    skipSeason,
+    skipAll,
+    resetProgress,
+  } = useGame();
+
+  const handleSkipAll = () => {
+    skipAll();
+    navigate("/results");
+  };
+
+  const handleReset = () => {
+    if (window.confirm("Reset your progress and start over?")) {
+      resetProgress();
+      toast("Progress reset");
+    }
+  };
 
   const stateOf = (level) => {
     if (isCompleted(level.id)) return "completed";
@@ -115,13 +147,39 @@ const Journey = () => {
         <p className="mt-2 text-[#6b6a63]">Pick a level. Make a call. See what I actually did.</p>
       </div>
 
+      <div className="-mt-4 mb-10 flex flex-wrap items-center justify-center gap-2">
+        <button
+          onClick={handleSkipAll}
+          data-testid="skip-all-button"
+          className="inline-flex items-center gap-1.5 rounded-full border border-[#d9d4c9] px-3.5 py-1.5 text-xs font-medium text-[#6b6a63] transition-colors hover:bg-[#f7f5f1] hover:text-[#16150f]"
+        >
+          <FastForward className="h-3.5 w-3.5" /> Skip to results
+        </button>
+        {completed.length > 0 && (
+          <button
+            onClick={handleReset}
+            data-testid="reset-progress-button"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#d9d4c9] px-3.5 py-1.5 text-xs font-medium text-[#6b6a63] transition-colors hover:bg-[#f7f5f1] hover:text-[#16150f]"
+          >
+            <RotateCcw className="h-3.5 w-3.5" /> Reset progress
+          </button>
+        )}
+      </div>
+
       {SEASONS.filter((s) => s.id !== 3).map((season) => {
         const levels = LEVELS.filter((l) => l.season === season.id);
         const done = levels.filter((l) => isCompleted(l.id)).length;
         const unlocked = isSeasonUnlocked(season.id);
         return (
           <section key={season.id} className="mb-14">
-            <SeasonHeader season={season} done={done} total={levels.length} />
+            <SeasonHeader
+              season={season}
+              done={done}
+              total={levels.length}
+              onSkip={
+                unlocked && done < levels.length ? () => skipSeason(season.id) : undefined
+              }
+            />
             {!unlocked && (
               <div className="mb-4 flex items-center gap-2 rounded-xl border border-dashed border-[#d9d4c9] bg-[#f1efe9] px-4 py-3 text-sm text-[#6b6a63]">
                 <Lock className="h-4 w-4" /> Complete Season {season.id - 1} to unlock this chapter.

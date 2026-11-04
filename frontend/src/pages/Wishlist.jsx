@@ -35,7 +35,7 @@ const Wishlist = () => {
                 added ? "border-[#4f46e5] shadow-[0_10px_40px_rgba(79,70,229,0.12)]" : "border-[#e7e2d8]"
               }`}
             >
-              <div className="relative h-44 overflow-hidden bg-[#f1efe9]">
+              <div className="relative aspect-[3/2] overflow-hidden bg-[#f1efe9]">
                 <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
                 <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#4f46e5] font-mono2">
                   {item.category}
