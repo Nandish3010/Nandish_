@@ -15,6 +15,7 @@ function App() {
     <div className="App">
       <GameProvider>
         <BrowserRouter>
+          <Toaster position="top-center" richColors />
           <Header />
           <Routes>
             <Route path="/" element={<Landing />} />
@@ -24,7 +25,6 @@ function App() {
             <Route path="/pitch" element={<Pitch />} />
             <Route path="/design-prompt" element={<DesignPromptDoc />} />
           </Routes>
-          <Toaster position="top-center" richColors />
         </BrowserRouter>
       </GameProvider>
     </div>

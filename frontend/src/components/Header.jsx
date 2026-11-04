@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Menu, Map, ShoppingBag, FileText, Sparkles, Trophy } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { useGame } from "@/context/GameContext";
 
 const NAV = [
@@ -76,6 +76,8 @@ const Header = () => {
               </button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-[#f7f5f1] w-72">
+              <SheetTitle className="sr-only">Navigation</SheetTitle>
+              <SheetDescription className="sr-only">Site navigation menu</SheetDescription>
               <div className="mt-8 flex flex-col gap-2">
                 {NAV.map((n) => (
                   <SheetClose asChild key={n.to}>

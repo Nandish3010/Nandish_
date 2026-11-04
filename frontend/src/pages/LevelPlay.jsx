@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
@@ -15,19 +15,14 @@ const LevelPlay = () => {
   const [selected, setSelected] = useState(null);
   const revealed = selected !== null;
   const unlocked = level ? isLevelUnlocked(level.id) || isCompleted(level.id) : false;
-  const toastedRef = useRef(false);
 
   useEffect(() => {
     setSelected(null);
-    toastedRef.current = false;
     window.scrollTo(0, 0);
   }, [id]);
 
   useEffect(() => {
-    if (level && !unlocked && !toastedRef.current) {
-      toastedRef.current = true;
-      toast("That level is still locked.");
-    }
+    if (level && !unlocked) toast("That level is still locked.", { id: "level-locked" });
   }, [level, unlocked]);
 
   if (!level || !unlocked) {

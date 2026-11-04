@@ -80,7 +80,7 @@ const Wishlist = () => {
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-sm font-medium text-[#6b6a63]">
               <Target className="h-4 w-4 text-[#4f46e5]" />
-              <span data-testid="wishlist-count">{cartCount} items</span>
+              <span data-testid="wishlist-count">{cartCount} {cartCount === 1 ? "item" : "items"}</span>
             </div>
             <div className="text-right">
               <span className="font-mono2 text-xl font-bold text-[#16150f]" data-testid="wishlist-total">
