@@ -5,7 +5,6 @@ import {
   Mic,
   Lock,
   Sparkles,
-  FileText,
   ShoppingBag,
   Rocket,
   Heart,
@@ -162,13 +161,6 @@ const Pitch = () => {
               data-testid="pitch-wishlist-link"
             >
               <ShoppingBag className="h-4 w-4" /> See the $3K wishlist
-            </Link>
-            <Link
-              to="/design-prompt"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold"
-              data-testid="pitch-design-prompt-link"
-            >
-              <FileText className="h-4 w-4" /> How I Build This with Voice
             </Link>
           </div>
         </div>
