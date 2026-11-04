@@ -13,7 +13,7 @@ export const SEASONS = [
     id: 2,
     code: "S2",
     name: "The Supertails Growth Engine",
-    tagline: "Operations intern to business analyst, one decision at a time.",
+    tagline: "Operations intern to Manager, Data & AI, one decision at a time.",
     accent: "#8B5CF6",
   },
   {
@@ -105,7 +105,7 @@ export const LEVELS = [
       "Drop the real work entirely until after graduation.",
     ],
     actualMove:
-      "Nandish chose the real work. He accepted that his final CGPA would land at 7.33 and treated it as a deliberate trade, not an accident.",
+      "Nandish chose the real work. He finished college with a 7.33 CGPA while doing real work alongside it: the placement club, class rep duties and an internship.",
     rationale:
       "The bet was simple: skills and shipped work compound faster than a decimal on a transcript. A 7.33 that comes with real projects and real ownership is worth more to the kind of teams he wanted to join than a higher number with nothing behind it. Work over credentials.",
     impact: ["Final CGPA: 7.33", "Prioritised hands-on work", "Built a 'work over credentials' mindset"],
@@ -197,7 +197,7 @@ export const LEVELS = [
   {
     id: "2.4",
     season: 2,
-    title: "Nifty Vendor Portal used by vendors for purchase orders listing and update",
+    title: "Nifty Vendor Portal",
     objective: "Give vendors one place for their POs, listings and numbers.",
     situation:
       "AI is changing how fast things can be built. Vendors need to check their purchase orders, update listings and see how they are doing on the platform, but today that lives in spreadsheets and back-and-forth messages.",
@@ -222,22 +222,22 @@ export const LEVELS = [
     situation:
       "Retention matters as much as acquisition. Supertails is launching coins, a loyalty program that gives customers coins based on their transactions on the platform. There are many parts to own. Which one would you pick?",
     choices: [
-      "I own the go-to-market",
+      "Owning the go-to-market",
       "Sizing the impact",
-      "Picking the top of formula",
-      "Building the algorithm to occur",
-      "Finding final leaks after launch",
+      "Picking the top-up formula",
+      "Building the hourly redemption tracker",
+      "Finding funnel leaks after launch",
     ],
     actualMove:
       "Nandish owned all of it: the BRD, testing the product and the go-to-market for coins, the loyalty program that rewards customers with coins based on their transactions.",
     rationale:
       "Loyalty is where data, product and growth meet. Owning every step from sizing to launch to post-launch fixes meant nothing fell between teams.",
     impact: [
-      "I own the go-to-market",
+      "Owning the go-to-market",
       "Sizing the impact",
-      "Picking the top of formula",
-      "Building the algorithm to occur",
-      "Finding final leaks after launch",
+      "Picking the top-up formula",
+      "Building the hourly redemption tracker",
+      "Finding funnel leaks after launch",
     ],
     badge: "Coins Minted",
     match: "all",
