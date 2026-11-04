@@ -13,7 +13,9 @@ const HiddenFinds = ({ eggs }) => (
       Hidden finds: {eggs.length} of {EASTER_EGGS.length}
     </p>
     <div className="mt-3 flex flex-wrap gap-2">
-      {EASTER_EGGS.filter((e) => eggs.includes(e.id)).map(({ id, badge, Icon, color }) => (
+      {EASTER_EGGS.filter((e) => eggs.includes(e.id))
+        .sort((a, b) => a.level.localeCompare(b.level))
+        .map(({ id, badge, Icon, color }) => (
         <span
           key={id}
           data-testid={`results-badge-${id}`}

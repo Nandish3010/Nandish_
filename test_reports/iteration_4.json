@@ -1,0 +1,24 @@
+{
+  "summary": "Frontend-only Playwright testing at 1920x1080 and 390x844. ALL PASSED. Played all 13 levels through the UI, with wrong answers on 1.2 and 2.2. Each easter egg is visible and clickable on its own level: lightning (1.1), straw-hat (1.3), paw (1.6), coin (2.5) and scissors (2.6). Each one shows a toast ending in 'Badge unlocked: EV Spark / Straw Hat / Paw Print / Coin Collector / Step Snipper'. The other 8 levels (1.2, 1.4, 1.5, 2.1-2.4, 2.7) have no egg. nj_eggs_v1 = all 5 ids, and they stay after a reload. Clicking the same egg twice does not duplicate the entry, and only one toast shows (toast id). live-match-score went up correctly from 1/1 to 11/13. match-result data-matched was correct on every level, including 2.5 option D. Finishing 2.7 goes to /results with score 11 / 13. Results showed 'Hidden finds: 0 of 5' plus 'None yet...' after a clear, 'Hidden finds: 2 of 5' with only the paw and coin chips in the partial case, and 5 of 5 with all chips. copy-share-message-button put exactly this on the clipboard: 'I matched 11/13 of Nandish's moves in Nandish: The Journey. Can you beat me? <origin>'. A success toast showed. The downloaded PNG (896x1086) shows the full card with the avatar, all 13 chips and the 5 badge chips, with no crop or offset (the iteration_3 bug is fixed). reset-progress-button on /pitch set nj_eggs_v1 to [], and Results then showed 0 of 5 and 0 / 13. On mobile the egg icon sits top-right and does not overlap the title.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Results hidden finds", "issues": ["Badge chips follow the EASTER_EGGS array order (Straw Hat, EV Spark, Coin, Scissors, Paw), not level order (1.1, 1.3, 1.6, 2.5, 2.6). Cosmetic only: reorder the array if level order is wanted."]},
+      {"screen": "Level 1.3", "issues": ["At opacity-40 the straw hat is very faint on the white card. This is probably intended for an easter egg."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": ["Optional: reorder EASTER_EGGS by level so the result chips read in story order."],
+  "critical_code_review_comments": [
+    "Results.jsx: the Hidden finds count uses eggs.length. If localStorage ever holds an unknown or legacy id, the count will not match the chips shown. Safer: count EASTER_EGGS.filter(e => eggs.includes(e.id)).length.",
+    "EasterEgg button has aria-label 'Something hidden' and is reachable by keyboard. That is fine."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend only)", "frontend": "100%"},
+  "seed_data_creation": "None. Only the test browser's localStorage was changed.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Keys: nj_progress_v3, nj_answers_v2, nj_eggs_v1. Matching picks: 1.1=1, 1.2=0, 1.3=2, 1.4=0, 1.5=1, 1.6=1, 2.1-2.4=1, 2.5=any, 2.6=1, 2.7=1. Seed nj_progress_v3 with all ids to jump to levels or /pitch. The PNG download can be saved with expect_download to /tmp and viewed."
+}
