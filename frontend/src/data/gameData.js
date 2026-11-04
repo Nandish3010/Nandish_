@@ -260,10 +260,10 @@ export const SEASON3 = {
 export const WISHLIST_ITEMS = [
   {
     id: "item-ergonomic-chair",
-    name: "Premium ergonomic chair",
+    name: "Ergonomic gaming chair with footrest",
     price: 500,
     category: "Comfort",
-    reason: "A seriously comfortable chair for long deep-work and voice-prompting sessions, so the back gives out long after the ideas do.",
+    reason: "Head and lumbar pillows plus a pull-out footrest, so long deep-work and voice-prompting sessions stay comfortable.",
     image: "/wishlist/chair.jpg",
   },
   {
