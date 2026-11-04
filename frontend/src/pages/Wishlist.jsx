@@ -36,7 +36,7 @@ const Wishlist = () => {
               }`}
             >
               <div className="relative aspect-[3/2] overflow-hidden bg-[#f1efe9]">
-                <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+                <img src={item.image} alt={item.name} className="h-full w-full object-cover" style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined} />
                 <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#4f46e5] font-mono2">
                   {item.category}
                 </span>

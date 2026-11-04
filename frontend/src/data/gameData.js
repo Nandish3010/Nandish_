@@ -277,7 +277,7 @@ export const WISHLIST_ITEMS = [
   {
     id: "item-mic",
     name: "A decent mic for speaking out thoughts",
-    price: 300,
+    price: 250,
     category: "Voice",
     reason: "Clean voice capture for speaking out prompts and ideas, the way this app was built.",
     image: "/wishlist/mic.jpg",
@@ -285,26 +285,19 @@ export const WISHLIST_ITEMS = [
   {
     id: "item-claude",
     name: "Claude for managing AI agents",
-    price: 900,
+    price: 800,
     category: "AI",
     reason: "Run and manage the AI agents that power the automations and analytics.",
     image: "/wishlist/claude.jpg",
   },
   {
-    id: "item-nap-pillow",
-    name: "Power-nap sleeping pillow",
-    price: 150,
-    category: "Recovery",
-    reason: "A quick reset between deep-focus sprints.",
-    image: "/wishlist/nap-pillow.jpg",
-  },
-  {
-    id: "item-snack-counter",
-    name: "Mini snack counter for small snacks",
-    price: 400,
-    category: "Fuel",
-    reason: "Keep the fuel close so the flow never breaks.",
-    image: "/wishlist/snack-counter.jpg",
+    id: "item-skydive",
+    name: "A Skydive Dubai jump, one per major launch",
+    price: 600,
+    category: "Adventure",
+    reason: "My best ideas come from adventures; I built this portfolio on vacation in Dubai. Every big launch gets celebrated by jumping out of a plane. That's me, mid-jump.",
+    image: "/wishlist/skydive.jpg",
+    imagePosition: "center 65%",
   },
 ];
 
