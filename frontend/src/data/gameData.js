@@ -292,10 +292,10 @@ export const WISHLIST_ITEMS = [
   },
   {
     id: "item-skydive",
-    name: "A Skydive Dubai jump, one per major launch",
+    name: "A skydive, one per major launch",
     price: 600,
     category: "Adventure",
-    reason: "My best ideas come from adventures; I built this portfolio on vacation in Dubai. Every big launch gets celebrated by jumping out of a plane. That's me, mid-jump.",
+    reason: "My best ideas come from adventures. I built this portfolio on vacation, just talking to Wispr Flow, and jumped out of a plane on the same trip. Every big launch gets celebrated with a new jump somewhere new. That's me, mid-jump.",
     image: "/wishlist/skydive.jpg",
     imagePosition: "center 65%",
   },
