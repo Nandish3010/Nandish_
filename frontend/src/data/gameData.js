@@ -65,7 +65,6 @@ export const LEVELS = [
     id: "1.3",
     season: 1,
     title: "The COVID Year",
-    easterEgg: true,
     objective: "Decide what to do with the time at home.",
     situation:
       "COVID hits and college moves online. Suddenly there is a lot of free time at home and nobody is checking how you spend it.",

@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { ChevronLeft, Lightbulb, Trophy, ArrowRight, CheckCircle2, PartyPopper, Shuffle } from "lucide-react";
 import { LEVELS, CHARACTER } from "@/data/gameData";
 import { useGame, isMatch } from "@/context/GameContext";
+import { EasterEgg } from "@/components/EasterEgg";
 
 const MatchBanner = ({ level, choice }) => {
   const matched = isMatch(level, choice);
@@ -25,27 +26,6 @@ const MatchBanner = ({ level, choice }) => {
     </div>
   );
 };
-
-const StrawHat = () => (
-  <button
-    data-testid="one-piece-easter-egg"
-    aria-label="A mysterious straw hat"
-    onClick={() =>
-      toast("You found the straw hat!", {
-        id: "one-piece",
-        description:
-          "Nandish's COVID-season anime was One Piece. He set sail with the Straw Hats instead of opening his textbooks.",
-      })
-    }
-    className="absolute right-4 top-4 opacity-40 transition-transform hover:rotate-12 hover:scale-125 hover:opacity-100"
-  >
-    <svg width="28" height="18" viewBox="0 0 28 18" aria-hidden>
-      <ellipse cx="14" cy="14" rx="13" ry="3.5" fill="#e9c46a" />
-      <path d="M7 14 C7 4, 21 4, 21 14 Z" fill="#f4d58d" />
-      <rect x="7.3" y="10.5" width="13.4" height="2.4" fill="#d62828" />
-    </svg>
-  </button>
-);
 
 const LiveScore = () => {
   const { matchedCount, answeredCount } = useGame();
@@ -113,7 +93,7 @@ const LevelPlay = () => {
       </div>
 
       <div className="relative rounded-3xl border border-[#e7e2d8] bg-white p-6 shadow-[0_10px_40px_rgba(22,21,15,0.05)] sm:p-8">
-        {level.easterEgg && <StrawHat />}
+        <EasterEgg levelId={level.id} />
         <span className="font-mono2 text-xs font-bold uppercase tracking-wider text-[#4f46e5]">
           Level {level.id} · Season {level.season}
         </span>

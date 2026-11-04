@@ -6,6 +6,7 @@ const GameContext = createContext(null);
 const PROGRESS_KEY = "nj_progress_v3";
 const WISHLIST_KEY = "nj_wishlist_v1";
 const ANSWERS_KEY = "nj_answers_v2";
+const EGGS_KEY = "nj_eggs_v1";
 
 export const isMatch = (level, choice) => level.match === "all" || level.match === choice;
 
@@ -22,6 +23,13 @@ export const GameProvider = ({ children }) => {
   const [completed, setCompleted] = useState(() => load(PROGRESS_KEY, []));
   const [cart, setCart] = useState(() => load(WISHLIST_KEY, []));
   const [answers, setAnswers] = useState(() => load(ANSWERS_KEY, {}));
+  const [eggs, setEggs] = useState(() => load(EGGS_KEY, []));
+
+  useEffect(() => {
+    localStorage.setItem(EGGS_KEY, JSON.stringify(eggs));
+  }, [eggs]);
+
+  const findEgg = (eggId) => setEggs((prev) => (prev.includes(eggId) ? prev : [...prev, eggId]));
 
   useEffect(() => {
     localStorage.setItem(ANSWERS_KEY, JSON.stringify(answers));
@@ -70,6 +78,7 @@ export const GameProvider = ({ children }) => {
     setCompleted([]);
     setCart([]);
     setAnswers({});
+    setEggs([]);
   };
 
   // wishlist
@@ -104,8 +113,10 @@ export const GameProvider = ({ children }) => {
       recordAnswer,
       matchedCount,
       answeredCount: answeredLevels.length,
+      eggs,
+      findEgg,
     }),
-    [completed, cart, answers],
+    [completed, cart, answers, eggs],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

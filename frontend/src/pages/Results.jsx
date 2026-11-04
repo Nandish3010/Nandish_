@@ -2,9 +2,30 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toPng } from "html-to-image";
 import { toast } from "sonner";
-import { Download, Rocket, Map } from "lucide-react";
+import { Download, Rocket, Map, Copy } from "lucide-react";
 import { LEVELS, CHARACTER } from "@/data/gameData";
 import { useGame, isMatch } from "@/context/GameContext";
+import { EASTER_EGGS } from "@/components/EasterEgg";
+
+const HiddenFinds = ({ eggs }) => (
+  <div className="mt-6 border-t border-white/10 pt-5" data-testid="results-hidden-finds">
+    <p className="text-xs font-bold uppercase tracking-wider text-white/50">
+      Hidden finds: {eggs.length} of {EASTER_EGGS.length}
+    </p>
+    <div className="mt-3 flex flex-wrap gap-2">
+      {EASTER_EGGS.filter((e) => eggs.includes(e.id)).map(({ id, badge, Icon, color }) => (
+        <span
+          key={id}
+          data-testid={`results-badge-${id}`}
+          className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-white"
+        >
+          <Icon className={`h-4 w-5 ${color.replace(/animate-\S+/, "")}`} /> {badge}
+        </span>
+      ))}
+      {eggs.length === 0 && <span className="text-xs text-white/40">None yet. Something is hiding in the levels...</span>}
+    </div>
+  </div>
+);
 
 const tierFor = (pct) => {
   if (pct >= 80) return { title: "Basically Nandish", line: "Same instincts, same calls. Spooky." };
@@ -13,7 +34,7 @@ const tierFor = (pct) => {
   return { title: "Plot Twist Player", line: "Nandish zigged, you zagged. Every time." };
 };
 
-const ResultCard = ({ cardRef, matched, total, answers }) => {
+const ResultCard = ({ cardRef, matched, total, answers, eggs }) => {
   const pct = total ? Math.round((matched / total) * 100) : 0;
   const tier = tierFor(pct);
   return (
@@ -51,15 +72,26 @@ const ResultCard = ({ cardRef, matched, total, answers }) => {
           );
         })}
       </div>
+      <HiddenFinds eggs={eggs} />
       <p className="mt-6 text-xs text-white/40">Play it yourself and see if you think like Nandish.</p>
     </div>
   );
 };
 
 export default function Results() {
-  const { answers, matchedCount } = useGame();
+  const { answers, matchedCount, eggs } = useGame();
   const cardRef = useRef(null);
   const [busy, setBusy] = useState(false);
+
+  const share = async () => {
+    const text = `I matched ${matchedCount}/${LEVELS.length} of Nandish's moves in Nandish: The Journey. Can you beat me? ${window.location.origin}`;
+    try {
+      await navigator.clipboard.writeText(text);
+      toast.success("Share message copied.", { description: text });
+    } catch {
+      toast.error("Could not copy. Try again.");
+    }
+  };
 
   const download = async () => {
     setBusy(true);
@@ -81,7 +113,7 @@ export default function Results() {
       <h1 className="text-center font-display text-3xl font-black tracking-tight sm:text-4xl">Your results</h1>
       <p className="mt-2 text-center text-[#6b6a63]">How many times did you make the same call as Nandish?</p>
       <div className="mt-8">
-        <ResultCard cardRef={cardRef} matched={matchedCount} total={LEVELS.length} answers={answers} />
+        <ResultCard cardRef={cardRef} matched={matchedCount} total={LEVELS.length} answers={answers} eggs={eggs} />
       </div>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <button
@@ -91,6 +123,13 @@ export default function Results() {
           className="inline-flex items-center gap-2 rounded-full bg-[#4f46e5] px-6 py-3 font-semibold text-white transition-transform hover:-translate-y-0.5 disabled:opacity-60"
         >
           <Download className="h-4 w-4" /> {busy ? "Creating..." : "Download card"}
+        </button>
+        <button
+          onClick={share}
+          data-testid="copy-share-message-button"
+          className="inline-flex items-center gap-2 rounded-full border border-[#4f46e5] bg-white px-6 py-3 font-semibold text-[#4f46e5] transition-transform hover:-translate-y-0.5"
+        >
+          <Copy className="h-4 w-4" /> Copy share message
         </button>
         <Link to="/pitch" data-testid="results-season3-link" className="inline-flex items-center gap-2 rounded-full bg-[#16150f] px-6 py-3 font-semibold text-white">
           <Rocket className="h-4 w-4" /> Open Season 3
