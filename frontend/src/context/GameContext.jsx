@@ -74,9 +74,18 @@ export const GameProvider = ({ children }) => {
   const answeredLevels = LEVELS.filter((l) => answers[l.id] !== undefined);
   const matchedCount = answeredLevels.filter((l) => isMatch(l, answers[l.id])).length;
 
+  const skipLevel = (id) => completeLevel(id);
+  const skipSeason = (seasonId) =>
+    setCompleted((prev) => [
+      ...prev,
+      ...seasonLevels(seasonId)
+        .map((l) => l.id)
+        .filter((id) => !prev.includes(id)),
+    ]);
+  const skipAll = () => setCompleted(LEVELS.map((l) => l.id));
+
   const resetProgress = () => {
     setCompleted([]);
-    setCart([]);
     setAnswers({});
     setEggs([]);
   };
@@ -102,6 +111,9 @@ export const GameProvider = ({ children }) => {
       isSeasonComplete,
       nextLevelId,
       progressPct,
+      skipLevel,
+      skipSeason,
+      skipAll,
       resetProgress,
       inCart,
       toggleItem,

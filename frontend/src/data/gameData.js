@@ -259,12 +259,20 @@ export const SEASON3 = {
 
 export const WISHLIST_ITEMS = [
   {
+    id: "item-ergonomic-chair",
+    name: "Premium ergonomic chair",
+    price: 500,
+    category: "Comfort",
+    reason: "A seriously comfortable chair for long deep-work and voice-prompting sessions, so the back gives out long after the ideas do.",
+    image: "/wishlist/chair.jpg",
+  },
+  {
     id: "item-standing-desk",
     name: "Adjustable electric standing desk",
     price: 850,
     category: "Workspace",
     reason: "Switch between sitting and standing through long growth-strategy sessions.",
-    image: "https://images.pexels.com/photos/8001034/pexels-photo-8001034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "/wishlist/standing-desk.jpg",
   },
   {
     id: "item-mic",
@@ -272,15 +280,15 @@ export const WISHLIST_ITEMS = [
     price: 300,
     category: "Voice",
     reason: "Clean voice capture for speaking out prompts and ideas, the way this app was built.",
-    image: "https://images.unsplash.com/photo-1625123628039-6053583b86cc?crop=entropy&cs=srgb&fm=jpg&q=85&w=940",
+    image: "/wishlist/mic.jpg",
   },
   {
     id: "item-claude",
     name: "Claude for managing AI agents",
-    price: 1100,
+    price: 900,
     category: "AI",
     reason: "Run and manage the AI agents that power the automations and analytics.",
-    image: "https://images.unsplash.com/photo-1792164559462-425260f43099?crop=entropy&cs=srgb&fm=jpg&q=85&w=940",
+    image: "/wishlist/claude.jpg",
   },
   {
     id: "item-nap-pillow",
@@ -288,7 +296,7 @@ export const WISHLIST_ITEMS = [
     price: 150,
     category: "Recovery",
     reason: "A quick reset between deep-focus sprints.",
-    image: "https://images.unsplash.com/photo-1685122121706-a7d632dec1df?crop=entropy&cs=srgb&fm=jpg&q=85&w=940",
+    image: "/wishlist/nap-pillow.jpg",
   },
   {
     id: "item-snack-counter",
@@ -296,7 +304,7 @@ export const WISHLIST_ITEMS = [
     price: 400,
     category: "Fuel",
     reason: "Keep the fuel close so the flow never breaks.",
-    image: "https://images.unsplash.com/photo-1759772238095-d1ed3f036ad5?crop=entropy&cs=srgb&fm=jpg&q=85&w=940",
+    image: "/wishlist/snack-counter.jpg",
   },
 ];
 
