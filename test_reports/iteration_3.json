@@ -1,0 +1,27 @@
+{
+  "summary": "Frontend-only Playwright test at 1920x1080. Played the whole game through the UI with a mix of right and wrong answers. PASSED: the Journey map lists S1 1.1-1.5 and S2 2.1-2.7 with the correct titles, including 2.6 'From 10 Steps to 3' and 2.7 'One App, One BRD'. Only 1.1 is playable at first; 2.1 is locked. The match-result banner was correct for all 12 levels: data-matched=true and 'You matched Nandish! He picked the same move.' on a match, 'Nandish went a different way.' otherwise. Picking option D on 2.5 showed 'Nandish did all of these. You matched Nandish!'. Finishing 2.7 navigates to /results with score 8 / 12 and the correct tier 'Same Wavelength'. Answers are saved in nj_answers_v1 and progress in nj_progress_v2. The download returns nandish-journey-results.png (71KB) with a success toast and no error toast. journey-results-link shows once S2 is complete and goes to /results. reset-progress-button on /pitch clears progress, answers and wishlist; afterwards Results shows 0/12 and the Journey link disappears. Regression passed: direct load of locked /level/2.6 redirects to /journey; wishlist total updates ($850, '1 item'); the design-prompt page 'How I Build This with Voice' loads and its .md download works. FAILED: the downloaded PNG is badly framed. The card is shifted right with a white strip on the left, and the right side is cut off, so the avatar and the 2.4 chip are missing.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Results.jsx download (toPng)", "issue": "At desktop width the exported PNG is offset and cropped. The left part is white/transparent and the right edge is cut off, so the avatar and the last chip in row 1 are missing. Cause: the card uses 'mx-auto', and html-to-image copies the computed margin-left (in px) into the clone, so the content moves right inside a canvas that is only the card's width.", "selector": "[data-testid='download-results-card-button']", "priority": "HIGH"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Results.jsx: pass style overrides to toPng so margins are removed in the clone, e.g. toPng(cardRef.current, { pixelRatio: 2, cacheBust: true, style: { margin: '0' } }). Another option is to put mx-auto on a wrapper div instead of the ref'd card. Then check that the downloaded PNG shows the full card, including the avatar and all 12 chips.",
+    "Optional: html-to-image logs SecurityError when reading cross-origin Google Fonts cssRules. It is harmless, but you can pass skipFonts or a fontEmbedCSS to quiet it."
+  ],
+  "critical_code_review_comments": [
+    "/results can be opened at any time, even with 0 answers. That is fine, but consider a CTA to play when answeredCount is 0.",
+    "The GameContext useMemo has deps [completed, cart, answers]. That is correct for now, but the functions are recreated on every render anyway."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend only)", "frontend": "~93% (all flows pass; the PNG export is visually broken)"},
+  "seed_data_creation": "None. Only the test browser's localStorage was changed.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Correct picks: 1.1=1, 1.2=2, 1.3=0, 1.4=1, 1.5=1, 2.1-2.4=1, 2.5=any, 2.6=1, 2.7=1. To seed a completed game, set nj_progress_v2 to all 12 ids and nj_answers_v1 to an object. To check the PNG, save the download from expect_download and view the image; the margin offset only shows at desktop width.",
+  "rca of the issue": "PNG crop: html-to-image clones the node with its inline computed styles, including margin-left/right in px from mx-auto at a 1920 viewport. The canvas is sized to the node's offsetWidth, so the margin pushes the content right and crops it. Mitigation: style:{margin:'0'} in the toPng options."
+}

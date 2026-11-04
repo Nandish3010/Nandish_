@@ -64,7 +64,7 @@ export default function Results() {
   const download = async () => {
     setBusy(true);
     try {
-      const url = await toPng(cardRef.current, { pixelRatio: 2, cacheBust: true });
+      const url = await toPng(cardRef.current, { pixelRatio: 2, cacheBust: true, style: { margin: "0" } });
       const a = document.createElement("a");
       a.href = url;
       a.download = "nandish-journey-results.png";
