@@ -3,8 +3,11 @@ import { LEVELS, WISHLIST_ITEMS, WISHLIST_GOAL } from "@/data/gameData";
 
 const GameContext = createContext(null);
 
-const PROGRESS_KEY = "nj_progress_v1";
+const PROGRESS_KEY = "nj_progress_v2";
 const WISHLIST_KEY = "nj_wishlist_v1";
+const ANSWERS_KEY = "nj_answers_v1";
+
+export const isMatch = (level, choice) => level.match === "all" || level.match === choice;
 
 const load = (key, fallback) => {
   try {
@@ -18,6 +21,11 @@ const load = (key, fallback) => {
 export const GameProvider = ({ children }) => {
   const [completed, setCompleted] = useState(() => load(PROGRESS_KEY, []));
   const [cart, setCart] = useState(() => load(WISHLIST_KEY, []));
+  const [answers, setAnswers] = useState(() => load(ANSWERS_KEY, {}));
+
+  useEffect(() => {
+    localStorage.setItem(ANSWERS_KEY, JSON.stringify(answers));
+  }, [answers]);
 
   useEffect(() => {
     localStorage.setItem(PROGRESS_KEY, JSON.stringify(completed));
@@ -54,9 +62,14 @@ export const GameProvider = ({ children }) => {
 
   const progressPct = Math.round((completed.length / LEVELS.length) * 100);
 
+  const recordAnswer = (id, choice) => setAnswers((prev) => ({ ...prev, [id]: choice }));
+  const answeredLevels = LEVELS.filter((l) => answers[l.id] !== undefined);
+  const matchedCount = answeredLevels.filter((l) => isMatch(l, answers[l.id])).length;
+
   const resetProgress = () => {
     setCompleted([]);
     setCart([]);
+    setAnswers({});
   };
 
   // wishlist
@@ -87,8 +100,12 @@ export const GameProvider = ({ children }) => {
       cartTotal,
       cartCount,
       goalPct,
+      answers,
+      recordAnswer,
+      matchedCount,
+      answeredCount: answeredLevels.length,
     }),
-    [completed, cart],
+    [completed, cart, answers],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

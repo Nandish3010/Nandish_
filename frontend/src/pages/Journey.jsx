@@ -184,6 +184,13 @@ const Journey = () => {
               >
                 Watch the preview & the pitch <ArrowRight className="h-4 w-4" />
               </Link>
+              <Link
+                to="/results"
+                data-testid="journey-results-link"
+                className="ml-3 mt-6 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-bold text-white"
+              >
+                See my results card
+              </Link>
             </>
           ) : (
             <p className="mt-3 max-w-xl text-sm text-[#6b6a63]">{SEASON3.lockedBlurb}</p>

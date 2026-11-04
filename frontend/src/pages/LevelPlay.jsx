@@ -2,14 +2,34 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
-import { ChevronLeft, Lightbulb, Trophy, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, Lightbulb, Trophy, ArrowRight, CheckCircle2, PartyPopper, Shuffle } from "lucide-react";
 import { LEVELS, CHARACTER } from "@/data/gameData";
-import { useGame } from "@/context/GameContext";
+import { useGame, isMatch } from "@/context/GameContext";
+
+const MatchBanner = ({ level, choice }) => {
+  const matched = isMatch(level, choice);
+  const text = level.match === "all"
+    ? "Nandish did all of these. You matched Nandish!"
+    : matched
+      ? "You matched Nandish! He picked the same move."
+      : "Nandish went a different way.";
+  return (
+    <div
+      data-testid="match-result"
+      data-matched={matched}
+      className={`mt-7 flex items-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold ${
+        matched ? "bg-[#dcfce7] text-[#166534]" : "bg-[#fef3c7] text-[#92400e]"
+      }`}
+    >
+      {matched ? <PartyPopper className="h-4 w-4" /> : <Shuffle className="h-4 w-4" />} {text}
+    </div>
+  );
+};
 
 const LevelPlay = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { isLevelUnlocked, completeLevel, nextLevelId, isCompleted } = useGame();
+  const { isLevelUnlocked, completeLevel, nextLevelId, isCompleted, recordAnswer } = useGame();
 
   const level = LEVELS.find((l) => l.id === id);
   const [selected, setSelected] = useState(null);
@@ -42,7 +62,7 @@ const LevelPlay = () => {
           description: "The Wispr Level is now open.",
         });
       }
-      navigate("/journey");
+      navigate("/results");
     }
   };
 
@@ -78,7 +98,10 @@ const LevelPlay = () => {
                 key={i}
                 data-testid={`choice-option-${i}`}
                 disabled={revealed}
-                onClick={() => setSelected(i)}
+                onClick={() => {
+                  setSelected(i);
+                  recordAnswer(level.id, i);
+                }}
                 className={`flex items-start gap-3 rounded-2xl border p-4 text-left text-[15px] transition-all ${
                   isPicked
                     ? "border-[#4f46e5] bg-[#eef0ff]"
@@ -109,7 +132,8 @@ const LevelPlay = () => {
               className="overflow-hidden"
               data-testid="reveal-panel"
             >
-              <div className="mt-7 rounded-2xl border-l-4 border-[#4f46e5] bg-[#eef0ff]/60 p-5">
+              <MatchBanner level={level} choice={selected} />
+              <div className="mt-3 rounded-2xl border-l-4 border-[#4f46e5] bg-[#eef0ff]/60 p-5">
                 <div className="flex items-center gap-3">
                   <img
                     src={CHARACTER.avatar}
@@ -120,7 +144,7 @@ const LevelPlay = () => {
                     <p className="font-mono2 text-[11px] font-bold uppercase tracking-wider text-[#4f46e5]">
                       What Nandish actually did
                     </p>
-                    <p className="text-xs text-[#6b6a63]">No wrong answers. Here is the real move.</p>
+                    <p className="text-xs text-[#6b6a63]">Here is the real move.</p>
                   </div>
                 </div>
                 <p className="mt-4 text-[15px] font-semibold leading-relaxed text-[#16150f]">

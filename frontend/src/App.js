@@ -9,6 +9,7 @@ import LevelPlay from "@/pages/LevelPlay";
 import Wishlist from "@/pages/Wishlist";
 import Pitch from "@/pages/Pitch";
 import DesignPromptDoc from "@/pages/DesignPromptDoc";
+import Results from "@/pages/Results";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/pitch" element={<Pitch />} />
             <Route path="/design-prompt" element={<DesignPromptDoc />} />
+            <Route path="/results" element={<Results />} />
           </Routes>
         </BrowserRouter>
       </GameProvider>

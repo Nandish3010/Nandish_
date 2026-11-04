@@ -30,6 +30,56 @@ export const LEVELS = [
   {
     id: "1.1",
     season: 1,
+    title: "Choosing the Stream",
+    objective: "Pick the engineering stream for the next four years.",
+    situation:
+      "College is about to start and the first big call is the stream. Everyone has an opinion about which branch is 'safe'. You want to pick something that connects to where the world is going.",
+    choices: [
+      "Computer science engineering",
+      "Electrical and electronics engineering",
+      "Mechanical engineering",
+    ],
+    actualMove: "Nandish chose Electrical and electronics engineering.",
+    rationale:
+      "He believed the future is EV and wanted to contribute towards that global change.",
+    impact: ["Electrical and electronics engineering", "Bet on the EV future"],
+    badge: "Future Builder",
+    match: 1,
+  },
+  {
+    id: "1.2",
+    season: 1,
+    title: "The COVID Year",
+    objective: "Decide what to do with the time at home.",
+    situation:
+      "COVID hits and college moves online. Suddenly there is a lot of free time at home and nobody is checking how you spend it.",
+    choices: ["Focus on studies", "Network with other students", "Watch anime"],
+    actualMove: "Nandish chose anime. And it was a failure.",
+    rationale:
+      "That failure became the turning point. It made him rethink what he actually wanted and changed his life goal away from electrical engineering.",
+    impact: ["Chose anime", "Learned from a failure", "Changed his life goal"],
+    badge: "Plot Twist",
+    match: 2,
+  },
+  {
+    id: "1.3",
+    season: 1,
+    title: "The Placement Club",
+    objective: "Take the placement club role, or focus on studies.",
+    situation:
+      "You are offered a role in the placement club. It means meeting many different companies and helping them coordinate all the placement requirements at college. It also means less time for studies.",
+    choices: ["Take up the placement club role", "Reject it and focus purely on studies"],
+    actualMove:
+      "Nandish took up the role and met multiple companies on campus, helping them coordinate placement requirements at his college.",
+    rationale:
+      "He believed he could make better connections with companies when they are on campus.",
+    impact: ["Joined the placement club", "Met companies on campus", "Built real connections"],
+    badge: "Connector",
+    match: 0,
+  },
+  {
+    id: "1.4",
+    season: 1,
     title: "The CGPA Dilemma",
     objective: "Balance college with real work.",
     situation:
@@ -45,28 +95,10 @@ export const LEVELS = [
       "The bet was simple: skills and shipped work compound faster than a decimal on a transcript. A 7.33 that comes with real projects and real ownership is worth more to the kind of teams he wanted to join than a higher number with nothing behind it. Work over credentials.",
     impact: ["Final CGPA: 7.33", "Prioritised hands-on work", "Built a 'work over credentials' mindset"],
     badge: "Trade-Off Thinker",
+    match: 1,
   },
   {
-    id: "1.2",
-    season: 1,
-    title: "Meeting the Companies",
-    objective: "Turn campus meetings into a real opportunity.",
-    situation:
-      "Companies are visiting campus and running meetings and internship rounds. Everyone is optimising for the safest, best-known name. You have limited shots and have to decide how to show up, and which outcomes are actually worth chasing.",
-    choices: [
-      "Apply everywhere and let the numbers decide.",
-      "Target places where you can learn fast and own real problems.",
-      "Wait for the single 'dream' company and ignore the rest.",
-    ],
-    actualMove:
-      "Nandish went into the company meetings and internship rounds focused on where he could do real work and grow, rather than chasing names for the sake of it.",
-    rationale:
-      "Early in a career, the best internship is the one that hands you real responsibility. He optimised meetings and conversations around learning velocity and ownership, which is exactly what set up the next level.",
-    impact: ["Met companies on campus", "Filtered for learning and ownership", "Set up the internship break"],
-    badge: "Signal Over Noise",
-  },
-  {
-    id: "1.3",
+    id: "1.5",
     season: 1,
     title: "Landing the Supertails Internship",
     objective: "Convert the opportunity into the first break.",
@@ -83,6 +115,7 @@ export const LEVELS = [
       "A first break is only worth it if you fully step through the door. Committing to Supertails gave him a real environment to prove the 'work over credentials' bet and opened the entire Season 2 career arc.",
     impact: ["Completed college", "Internship secured at Supertails", "Season 1 complete"],
     badge: "First Break",
+    match: 1,
   },
 
   // ---------------- SEASON 2 ----------------
@@ -104,6 +137,7 @@ export const LEVELS = [
       "Operations gave him ground truth about how the business actually ran. Turning that into analysis made the shift into a data analyst role a natural next step rather than a leap of faith for the team.",
     impact: ["Operations intern to data analyst path", "Earned the move through work", "Found his leverage in data"],
     badge: "Earned The Move",
+    match: 1,
   },
   {
     id: "2.2",
@@ -123,6 +157,7 @@ export const LEVELS = [
       "Sustainable careers are not straight lines. Taking the break honestly and returning with intent is what made the business analyst chapter possible, instead of burning out or walking away.",
     impact: ["Three-to-four month break", "Returned to Supertails", "Protected long-term momentum"],
     badge: "The Comeback",
+    match: 1,
   },
   {
     id: "2.3",
@@ -142,6 +177,7 @@ export const LEVELS = [
       "Dashboards answer 'what', pipelines keep the answers fresh, and RCAs answer 'why'. Together they turn a reactive analyst into someone the business relies on to make decisions.",
     impact: ["Built dashboards", "Set up data pipelines", "Ran RCAs on key problems", "Owned target planning"],
     badge: "Root Cause",
+    match: 1,
   },
   {
     id: "2.4",
@@ -161,6 +197,7 @@ export const LEVELS = [
       "Giving vendors self-serve access removed daily back-and-forth and let them act on their own numbers, turning a manual process into a product.",
     impact: ["Built his first app", "POs, listings and revenue in one place", "Gave vendors self-serve visibility"],
     badge: "Portal Live",
+    match: 1,
   },
   {
     id: "2.5",
@@ -188,9 +225,30 @@ export const LEVELS = [
       "Finding final leaks after launch",
     ],
     badge: "Coins Minted",
+    match: "all",
   },
   {
     id: "2.6",
+    season: 2,
+    title: "From 10 Steps to 3",
+    objective: "Cut the build process down to what actually matters.",
+    situation:
+      "Getting anything built takes 10 steps. Requests bounce between teams, wait in queues and get checked again and again. Every new tool or fix moves slowly because of the process, not the work.",
+    choices: [
+      "Keep the 10-step process. It is how things are done.",
+      "Cut it down to 2 or 3 steps: one approval and verification.",
+      "Add more review steps to be extra safe.",
+    ],
+    actualMove:
+      "Nandish optimized the process so what previously took 10 steps now takes just 2 or 3. One is an approval step, and the other two are just verification steps most of the time.",
+    rationale:
+      "Most steps were not adding value, they were adding waiting. Keeping one approval and quick verification kept the control while removing the drag.",
+    impact: ["10 steps down to 2 or 3", "One approval step", "Faster builds for everyone"],
+    badge: "Step Cutter",
+    match: 1,
+  },
+  {
+    id: "2.7",
     season: 2,
     title: "One App, One BRD",
     objective: "Consolidate workflows and master the BRD process.",
@@ -207,6 +265,7 @@ export const LEVELS = [
       "Consolidation removes friction for everyone, and the BRD is how an analyst turns a vision into something engineering can actually build. Owning that process is what separates someone who reports on work from someone who ships it.",
     impact: ["Consolidated workflows into one app", "Owned the BRD creation process", "Now Manager, Data & AI at Supertails"],
     badge: "Ship It",
+    match: 1,
   },
 ];
 
