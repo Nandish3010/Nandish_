@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Menu, Map, ShoppingBag, Mic, Sparkles, Trophy } from "lucide-react";
+import { Menu, Map, ShoppingBag, Sparkles, Trophy } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { useGame } from "@/context/GameContext";
 
@@ -8,7 +8,6 @@ const NAV = [
   { to: "/journey", label: "The Journey", icon: Map },
   { to: "/wishlist", label: "$3K Wishlist", icon: ShoppingBag },
   { to: "/pitch", label: "Why hire me", icon: Trophy },
-  { to: "/design-prompt", label: "How I Build This with Voice", icon: Mic },
 ];
 
 const Header = () => {
